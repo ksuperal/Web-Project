@@ -49,30 +49,35 @@ a{
 }
 .typewriterdiv{
     display: inline-block !important;
-    padding-left: 100px !important;
-    padding-top: 200px !important;
+    padding-left: 300px !important;
+    padding-top: 300px !important;
 }
-.typewriteranimation{
-    
-    width: 100px !important;
-    font-size: 2em !important;
-    letter-spacing: 10px !important;
-    font-family: monospace !important;
-    border-right: 5px solid !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    flex-shrink: 0 !important;
-    animation: 
-        typing 2s steps(31), 
-        cursor .4s step-end infinite alternate !important;
-}
-@keyframes cursor{
-    50% { border-right-color: transparent }
-}
-@keyframes typing{
-    from { width: 0 }
+.typewriteranimation {
+    width: 550px;
+    font-size: 2em;
+    letter-spacing: 10px;
+    font-family: monospace;
+    border-right: 5px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 0 ;
 
+    animation: typing 3s steps(20), 
+        cursor 0.5s step-end infinite alternate;
 }
+
+@keyframes cursor {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+}
+
 /* Color panel from dark to light
  #1D1A39
  #451952
