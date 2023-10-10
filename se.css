@@ -2,14 +2,51 @@
     background-color: #1D1A39 !important;
 }
 a{
-    color:white !important;
+    color:#E8BCB9 !important;
 
 }
 .background{
-    background-image: url(3520511.png); 
+    background-image: url(bg.jpg); 
     background-size: cover; 
+    filter: brightness(160%);
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
     width: 100%;  
+
+    display: grid;
+    grid-template-rows: 100px 100px 200px 200px 200px 200px;
+    grid-template-columns: 100px 350px 250px 250px 200px 200px;
+
 }
+.dropdown-item{
+    background-color: #F39F5A !important;
+    color:#1D1A39 !important;
+}
+.dropdown-item:hover{
+    background-color: #E8BCB9 !important;
+    color:#1D1A39 !important;
+}
+.item1{
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+.accordion-button{
+    color: #E8BCB9 !important;
+    background-color: #1D1A39 !important;
+}
+.accordion-button:hover{
+    color: #E8BCB9 !important;
+    background-color: #451952 !important;
+}
+.accordion-item{
+    background-color: #a56c77 !important;
+}
+
+/* Color panel from dark to light
+ #1D1A39
+ #451952
+ #662549 
+ #AE445A
+ #F39F5A
+ #E8BCB9*/
