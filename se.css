@@ -8,28 +8,33 @@ a{
 .background{
     background-image: url(bg.jpg); 
     background-size: cover; 
-    filter: brightness(160%);
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
     width: 100%;  
-
-    display: grid;
-    grid-template-rows: 100px 100px 200px 200px 200px 200px;
-    grid-template-columns: 100px 350px 250px 250px 200px 200px;
+    display: flex;
+    justify-content: flex-start;
 
 }
 .dropdown-item{
-    background-color: #F39F5A !important;
     color:#1D1A39 !important;
 }
 .dropdown-item:hover{
-    background-color: #E8BCB9 !important;
+    background-color:  #F39F5A!important;
     color:#1D1A39 !important;
 }
 .item1{
-    grid-row: 2/3;
-    grid-column: 2/3;
+    padding-left: 100px !important;
+    padding-top: 200px !important;
+    height: auto !important;
+    width: 40% !important;
+    flex-shrink: 0 !important;
+}
+.item2{
+    padding-left: 100px !important;
+    padding-top:100px !important;
+    height:100vh !important;
+    width: 50% !important;
 }
 .accordion-button{
     color: #E8BCB9 !important;
@@ -42,7 +47,32 @@ a{
 .accordion-item{
     background-color: #a56c77 !important;
 }
+.typewriterdiv{
+    display: inline-block !important;
+    padding-left: 100px !important;
+    padding-top: 200px !important;
+}
+.typewriteranimation{
+    
+    width: 100px !important;
+    font-size: 2em !important;
+    letter-spacing: 10px !important;
+    font-family: monospace !important;
+    border-right: 5px solid !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    animation: 
+        typing 2s steps(31), 
+        cursor .4s step-end infinite alternate !important;
+}
+@keyframes cursor{
+    50% { border-right-color: transparent }
+}
+@keyframes typing{
+    from { width: 0 }
 
+}
 /* Color panel from dark to light
  #1D1A39
  #451952
