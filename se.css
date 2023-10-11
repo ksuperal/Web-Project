@@ -1,12 +1,13 @@
 .navbar{
     background-color: #1D1A39 !important;
+    z-index: 1 !important;
 }
 a{
     color:#E8BCB9 !important;
 
 }
 .background{
-    background-image: url(resources/bg.png); 
+    /* background-image: url("https://youtu.be/OXam0bsRNeY?si=68RIZ0fjv0TdBBiJ");  */
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -16,6 +17,16 @@ a{
     /* flex-direction: column; */
     justify-content: flex-start;
 }
+
+video {
+    object-fit:cover;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
 /* .container-row{
     display: flex;
     flex-direction: row;
@@ -39,6 +50,7 @@ a{
 }
 .item1{
     padding-left: 100px !important;
+    position: relative !important;
     padding-top: 200px !important;
     height: auto !important;
     width: 40% !important;
@@ -65,6 +77,7 @@ a{
     background-color: #a56c77 !important;
 }
 .typewriterdiv{
+    position: relative !important;
     display: inline-block !important;
     padding-left: 300px !important;
     padding-top: 300px !important;
