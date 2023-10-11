@@ -7,22 +7,29 @@ a{
     color:#E8BCB9 !important;
 
 }
-/* a:hover{
+a:hover{
     background-color: #451952 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
-} */
+}
+
 .background{
-    /* background-image: url("https://youtu.be/OXam0bsRNeY?si=68RIZ0fjv0TdBBiJ");  */
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
     width: 100%;  
     display: flex;
-    /* flex-direction: column; */
     justify-content: flex-start;
+}
+.background2{
+    padding-top: 300px !important;
+    height: 120% !important;
+    width: 100% !important;
+    background-color: #1D1A39 !important;
+    overflow: hidden !important;
+    display: flex;
+
 }
 
 video {
@@ -71,15 +78,23 @@ video {
 
     padding-left: 100px !important;
     position: relative !important;
-    padding-top: 200px !important;
+    padding-top: 100px !important;
     height: auto !important;
     width: 40% !important;
     flex-shrink: 0 !important;
 }
+
 .item2{
-    padding-left: 100px !important;
+    
+    padding-left: 200px !important;
     padding-top:100px !important;
-    height:100vh !important;
+    height:600px !important;
+    width: 50% !important;
+}
+.item3{
+    padding-top:100px !important;
+    padding-left: 100px !important;
+    height: 600px !important;
     width: 50% !important;
 }
 .accordion-button{
@@ -120,9 +135,101 @@ video {
         cursor 0.5s step-end infinite alternate;
 }
 .carousel-inner img{
-    height: 350px !important;
+    height: 300px !important;
     width: 100% !important;
+    border: 3px solid #968fd8 !important;
 }
+.carousel-inner:hover{
+    background-color: #faf6fc !important;
+    box-shadow: 10px 10px 0px #968fd8 !important;
+    top: -20px !important;
+    left: -20px !important;
+}
+.text-pop-up-top {
+    padding-top: 100px !important;
+    color: #a56c77 !important;
+	animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.HH{
+    font-size: 3em !important;
+    color: rgb(176, 55, 176);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    background: transparent;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+}
+.HH:hover{
+    color: white;
+}
+.HH::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    transform: skewX(45deg);
+    background-color: purple;
+    z-index: -1;
+    transition: all 1s;
+  }
+  
+.HH:hover::before {
+    width: 160%;
+}
+@keyframes text-pop-up-top {
+    0% {
+        transform: translateY(0);
+        transform: translateY(0);
+        transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: none;
+    }
+    100% {
+        transform: translateY(-50px);
+        transform: translateY(-50px);
+        transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+    }
+}
+/* .calendarContainer{
+    width: 120% !important;
+} */
+.calendar {
+    font-family: 'Arial', sans-serif;
+    width: 400px;
+    color: white;
+    background-color: #a56c77;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(215, 209, 209);
+  }
+
+  .month {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+  }
+
+  .day {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ddd;
+  }
 @keyframes cursor {
     50% {
         border-right-color: transparent;

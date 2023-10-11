@@ -17,7 +17,10 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="se.css" />
-
+    <!-- <script src="se.js"></script>
+    <script>
+      createCalendar("calendarContainer", 2023, 9);
+    </script> -->
     <title>SE kmitl</title>
   </head>
   <body>
@@ -104,7 +107,7 @@
       </div>
     </nav>
     <div class="background">
-      <video playsinline autoplay muted loop poster="cake.jpg">
+      <video playsinline autoplay muted loop >
         <source src="resources/bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -121,7 +124,7 @@
                   aria-expanded="false"
                   aria-controls="collapseOne"
                 >
-                  Accordion Item #1
+                  SE class#0
                 </button>
               </h2>
               <div
@@ -152,7 +155,7 @@
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  Accordion Item #2
+                  What we learn?
                 </button>
               </h2>
               <div
@@ -183,7 +186,7 @@
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  Accordion Item #3
+                  Why SE?
                 </button>
               </h2>
               <div
@@ -192,12 +195,7 @@
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <strong>This is the third item's accordion body.</strong> It is
-                  hidden by default, until the collapse plugin adds the
-                  appropriate classes that we use to style each element. These
-                  classes control the overall appearance, as well as the showing
-                  and hiding via CSS transitions. You can modify any of this with
-                  custom CSS or overriding our default variables. It's also worth
+                  <strong>ables. It's also worth
                   noting that just about any HTML can go within the
                   <code>.accordion-body</code>, though the transition does limit
                   overflow.
@@ -208,7 +206,7 @@
         </div>
         <div class="typewriterdiv">
           <div class="typewriteranimation">
-            Welcome To <br />Software Engineering
+            Welcome To <br />Software Engineering<br />KMITL
           </div>
         </div>
       
@@ -240,6 +238,65 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
+        <div class="text-pop-up-top">
+          <a class="HH">Events and News</a>
+        </div>
+    </div>
+    <div class="item3">
+      <div class="calendar" id="calendarContainer">
+        <!-- Placeholder content, will be replaced by the calendar -->
+      </div>
+    </div>
+    
+    <script>
+      function createCalendar(containerId, year, month) {
+        const container = document.getElementById(containerId);
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        const firstDayOfMonth = new Date(year, month, 1).getDay();
+    
+        const monthNames = [
+          'January', 'February', 'March', 'April', 'May', 'June',
+          'July', 'August', 'September', 'October', 'November', 'December'
+        ];
+    
+        // Clear the container
+        container.innerHTML = '';
+    
+        // Create month header
+        const monthHeader = document.createElement('div');
+        monthHeader.className = 'month';
+        monthHeader.textContent = `${monthNames[month]} ${year}`;
+        container.appendChild(monthHeader);
+    
+        // Create days grid
+        const daysGrid = document.createElement('div');
+        daysGrid.className = 'days';
+        container.appendChild(daysGrid);
+    
+        // Add day labels
+        const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        for (const label of dayLabels) {
+          const dayLabel = document.createElement('div');
+          dayLabel.className = 'day';
+          dayLabel.textContent = label;
+          daysGrid.appendChild(dayLabel);
+        }
+    
+        // Add days
+        for (let i = 1; i <= daysInMonth + firstDayOfMonth - 1; i++) {
+          const day = document.createElement('div');
+          day.className = 'day';
+          if (i >= firstDayOfMonth) {
+            day.textContent = i - firstDayOfMonth + 1;
+          }
+          daysGrid.appendChild(day);
+        }
+      }
+    
+      // Example: Create a calendar for October 2023
+      createCalendar('calendarContainer', 2023, 9); // Note: Month is zero-based (0 for January, 1 for February, etc.)
+    </script>
+
     </div>
   </body>
 </html>
