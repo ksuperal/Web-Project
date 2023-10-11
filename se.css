@@ -6,16 +6,30 @@ a{
 
 }
 .background{
-    background-image: url(bg.jpg); 
+    background-image: url(resources/bg.png); 
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
     width: 100%;  
     display: flex;
+    /* flex-direction: column; */
     justify-content: flex-start;
-
 }
+/* .container-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.gear{
+    width: 100%;
+    height: 100vh;
+    padding-left: 35%;
+    border:#451952 1px solid;
+} */
+/* .gear-item{
+    margin: 0;
+} */
 .dropdown-item{
     color:#1D1A39 !important;
 }
@@ -43,6 +57,9 @@ a{
 .accordion-button:hover{
     color: #E8BCB9 !important;
     background-color: #451952 !important;
+    box-shadow: 10px 10px 0px #1D1A39 !important;
+    top: -5px !important;
+    left: -5px !important;
 }
 .accordion-item{
     background-color: #a56c77 !important;
