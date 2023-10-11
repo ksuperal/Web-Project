@@ -1,11 +1,18 @@
 .navbar{
     background-color: #1D1A39 !important;
     z-index: 1 !important;
+    height: 70px !important;
 }
 a{
     color:#E8BCB9 !important;
 
 }
+/* a:hover{
+    background-color: #451952 !important;
+    box-shadow: 10px 10px 0px #1D1A39 !important;
+    top: +5px !important;
+    left: +5px !important;
+} */
 .background{
     /* background-image: url("https://youtu.be/OXam0bsRNeY?si=68RIZ0fjv0TdBBiJ");  */
     background-size: cover; 
@@ -27,28 +34,42 @@ video {
     width: 100%;
   }
 
-/* .container-row{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-.gear{
-    width: 100%;
-    height: 100vh;
-    padding-left: 35%;
-    border:#451952 1px solid;
-} */
-/* .gear-item{
-    margin: 0;
-} */
+
 .dropdown-item{
-    color:#1D1A39 !important;
-}
+    color: purple;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 2px solid purple;
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+    background: transparent;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;}
+    
 .dropdown-item:hover{
-    background-color:  #F39F5A!important;
-    color:#1D1A39 !important;
+    color: white;
+
+}
+.dropdown-item::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    top: 0;
+    left: -40px;
+    transform: skewX(45deg);
+    background-color: purple;
+    z-index: -1;
+    transition: all 1s;
+  }
+  
+.dropdown-item:hover::before {
+    width: 160%;
 }
 .item1{
+
     padding-left: 100px !important;
     position: relative !important;
     padding-top: 200px !important;
@@ -63,6 +84,8 @@ video {
     width: 50% !important;
 }
 .accordion-button{
+    border-radius: 25px !important;
+    width: 100% !important;
     color: #E8BCB9 !important;
     background-color: #1D1A39 !important;
 }
@@ -74,6 +97,8 @@ video {
     left: -5px !important;
 }
 .accordion-item{
+    border-radius: 25px !important;
+    width: 60% !important;
     background-color: #a56c77 !important;
 }
 .typewriterdiv{
