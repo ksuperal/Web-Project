@@ -17,13 +17,12 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="se.css" />
-    <!-- <script src="se.js"></script>
-    <script>
-      createCalendar("calendarContainer", 2023, 9);
-    </script> -->
+    <script src="se.js"></script>
+    
     <title>SE kmitl</title>
   </head>
   <body>
+    
     <div id="root"></div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
@@ -111,8 +110,14 @@
         <source src="resources/bg.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <!-- <div class="container-row"> -->
-        <div class="item1">
+      <div class="loader">
+      <div class="loader1">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>        
+      <div class="item1">
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header">
@@ -243,60 +248,12 @@
         </div>
     </div>
     <div class="item3">
-      <div class="calendar" id="calendarContainer">
-        <!-- Placeholder content, will be replaced by the calendar -->
-      </div>
+      
     </div>
     
-    <script>
-      function createCalendar(containerId, year, month) {
-        const container = document.getElementById(containerId);
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const firstDayOfMonth = new Date(year, month, 1).getDay();
-    
-        const monthNames = [
-          'January', 'February', 'March', 'April', 'May', 'June',
-          'July', 'August', 'September', 'October', 'November', 'December'
-        ];
-    
-        // Clear the container
-        container.innerHTML = '';
-    
-        // Create month header
-        const monthHeader = document.createElement('div');
-        monthHeader.className = 'month';
-        monthHeader.textContent = `${monthNames[month]} ${year}`;
-        container.appendChild(monthHeader);
-    
-        // Create days grid
-        const daysGrid = document.createElement('div');
-        daysGrid.className = 'days';
-        container.appendChild(daysGrid);
-    
-        // Add day labels
-        const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-        for (const label of dayLabels) {
-          const dayLabel = document.createElement('div');
-          dayLabel.className = 'day';
-          dayLabel.textContent = label;
-          daysGrid.appendChild(dayLabel);
-        }
-    
-        // Add days
-        for (let i = 1; i <= daysInMonth + firstDayOfMonth - 1; i++) {
-          const day = document.createElement('div');
-          day.className = 'day';
-          if (i >= firstDayOfMonth) {
-            day.textContent = i - firstDayOfMonth + 1;
-          }
-          daysGrid.appendChild(day);
-        }
-      }
-    
-      // Example: Create a calendar for October 2023
-      createCalendar('calendarContainer', 2023, 9); // Note: Month is zero-based (0 for January, 1 for February, etc.)
-    </script>
-
+    </div>
+    <div class="background3">
+      
     </div>
   </body>
 </html>
