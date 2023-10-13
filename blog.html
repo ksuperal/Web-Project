@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .post {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .toggleReplies {
+            margin-top: 10px;
+        }
+        .replies {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>SE BLOG</h1>
+
+    <div id="newPostSection" style="margin-bottom: 20px;">
+        <h2>Create a New Post</h2>
+        <input type="text" id="newPostTitle" placeholder="Post Title">
+        <br>
+        <textarea id="newPostContent" placeholder="Post Content"></textarea>
+        <br>
+        <button id="newPostButton">Post</button>
+    </div>
+
+    <div id="blogPosts"></div>
+
+    
+
+    <script src="blog.js"></script>
+</body>
+</html>
