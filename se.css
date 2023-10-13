@@ -7,21 +7,26 @@ html{
 }
 
 
-a{
+ a{
     color:#E8BCB9 !important;
     text-decoration: none;
 
 }
-
+/*
 a:hover{
     background-color: #451952 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
+} */
+
+.kmitl{
+    margin-top: 50px;
+    margin-left: 100px;
+    width: 100px;
 }
-
-
 .background{
+    border-radius: 40px;
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -31,24 +36,132 @@ a:hover{
     justify-content: flex-start;
 }
 .background2{
-    padding-top: 70px ;
+    padding-top: 60px ;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
-
-    height: 80vh ;
+    border-radius: 40px;
+    height: auto ;
     width: 100% ;
-    background-color:#AE445A ;   
+    background-color:#bf8f99 ;   
     overflow: hidden ;
     display: flex;
 
 }
+.footer {
+  border-radius: 40px;
+  
+  height: 250px;
+  width: 100%;
+  background-color: #1e3f57;
+  color: white;
+  text-align: center;
+  z-index: -2;
+}
+.fcontainer{
+  display: flex;
+}
+.k-icon{
+  width: 300px;
+  border-right: 1px solid #E8BCB9;
+}
+.social{
+  margin-left: 100px;
+}
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 40px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
 
+.wrapper .icon {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -15px ;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877F2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #E4405F;
+  color: #fff;
+}
 video {
+  border-radius: 40px;
+
     object-fit:cover;
     position: absolute;
     left: 0;
-    height: 100vh;
+    height: 97vh;
     width: 100%;
     filter: brightness(1.5);
   }
@@ -71,6 +184,7 @@ video {
    .b1:hover {
     box-shadow: #968fd8 0px 5px 0px 0px;
     background-color: #AE445A;
+    
 
    }
    
@@ -123,8 +237,11 @@ video {
   }
   
   .dropdown-content a:hover {
-    background-color: #f1f1f1
-    
+    background-color: #f1f1f1;
+    background-color: #451952 !important;
+    box-shadow: 10px 10px 0px #1D1A39 !important;
+    top: +5px !important;
+    left: +5px !important;
   }
   
   .dropdown:hover .dropdown-content {
@@ -180,6 +297,7 @@ video {
   margin-left: 50px !important;
 }
 .item4{
+  margin-top: 50px !important;
   margin-left: 100px !important;
 }
 .item3 a{
@@ -196,7 +314,6 @@ video {
   width: 200px;
   height: auto;
   
-  background-color: #f1f1f1;
   border-radius: 25px;
 	/* -webkit-animation: se 1.5s ease-in-out infinite both;
 	        animation: se 1.5s ease-in-out infinite both; */
@@ -236,6 +353,7 @@ video {
   background-color: #e1b7c0;
   display: none;
   overflow: hidden;
+
   transition: max-height 0.2s ease-out; 
 }
 @-webkit-keyframes se {
@@ -410,6 +528,10 @@ video {
 }
 .HH:hover{
     color: white;
+    background-color: #451952 !important;
+    box-shadow: 10px 10px 0px #1D1A39 !important;
+    top: +5px !important;
+    left: +5px !important;
 }
 .HH::before {
     content: '';
@@ -429,7 +551,7 @@ video {
 }
 .HHH{
   font-size: 20px !important;
-  color: rgb(176, 55, 176);
+  color: #e1b7c0;
   text-transform: uppercase;
   text-decoration: none;
   padding: 10px 20px;
@@ -442,6 +564,10 @@ video {
 }
 .HHH:hover{
   color: white;
+  background-color: #451952 !important;
+    box-shadow: 10px 10px 0px #1D1A39 !important;
+    top: +5px !important;
+    left: +5px !important;
 }
 .HHH::before {
   content: '';
@@ -462,7 +588,7 @@ video {
 .card {
   width: 800px;
   height: 400px;
-  border-radius: 4px;
+  border-radius: 20px;
   background: #212121;
   display: flex;
   gap: 5px;
@@ -477,14 +603,13 @@ video {
   border-radius: 2px;
   transition: all .5s;
   background: transparent;
-  border: 1px solid #ff5a91;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .card p:hover {
-  flex: 10;
+  flex: 15;
 }
 
 .card p img {

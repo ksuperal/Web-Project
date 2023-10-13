@@ -146,8 +146,8 @@
   .calendar .days .active {
     position: relative;
     font-size: 2rem;
-    color: #c61e1e;
-    background-color: var(--primary-clr);
+    color: #d45850;
+    background-color: #F39F5A;
   }
   .calendar .days .active::before {
     content: "";
@@ -215,13 +215,30 @@
     transition: all 1s !important;
     overflow: hidden !important;
   }
+  .day{
+      font-weight: 700;
+      background: rgb(255, 255, 255);
+      color: blueviolet;
+      border-radius: .5rem;
+      border-bottom: 2px solid blueviolet;
+      border-right: 2px solid blueviolet;
+      border-top: 2px solid white;
+      border-left: 2px solid white;
+      transition-duration: 1s;
+      transition-property: border-top, 
+         border-left, 
+         border-bottom,
+         border-right,
+         box-shadow;
+     }
   .day:hover{
-    background-color: #451952 !important;
-    box-shadow: 10px 10px 0px #1D1A39 !important;
-    top: +5px !important;
-    left: +5px !important;
-    border: 2px #E8BCB9 !important;
-  }
+    
+      border-top: 2px solid blueviolet;
+      border-left: 2px solid blueviolet;
+      border-bottom: 2px solid rgb(238, 103, 238);
+      border-right: 2px solid rgb(238, 103, 238);
+      box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+     }
   .today-btn:hover {
     background-color: purple !important;
     color: white !important;
