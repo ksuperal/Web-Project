@@ -49,29 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "December",
     ];
     
-    // const eventsArr = [
-    //   {
-    //     day: 13,
-    //     month: 11,
-    //     year: 2022,
-    //     events: [
-    //       {
-    //         title: "Event 1 lorem ipsun dolar sit genfa tersd dsad ",
-    //         time: "10:00 AM",
-    //       },
-    //       {
-    //         title: "Event 2",
-    //         time: "11:00 AM",
-    //       },
-    //     ],
-    //   },
-    // ];
-    
+  
     const eventsArr = [];
     getEvents();
     console.log(eventsArr);
     
-    //function to add days in days with class day and prev-date next-date on previous month and next month days and active on today
     function initCalendar() {
       const firstDay = new Date(year, month, 1);
       const lastDay = new Date(year, month + 1, 0);
@@ -90,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     
       for (let i = 1; i <= lastDate; i++) {
-        //check if event is present on that day
         let event = false;
         eventsArr.forEach((eventObj) => {
           if (
@@ -130,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
       addListner();
     }
     
-    //function to add month and year on prev and next button
     function prevMonth() {
       month--;
       if (month < 0) {
@@ -154,7 +134,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     initCalendar();
     
-    //function to add active on day
     function addListner() {
       const days = document.querySelectorAll(".day");
       days.forEach((day) => {
