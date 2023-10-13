@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         renderBlogPosts();
 
         // Send a POST request to the server to update the JSON file
-        fetch('http://localhost:3000/newpost', {
+        fetch('http://localhost:8000/newpost', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    fetch('http://localhost:3000/posts')
+    fetch('http://localhost:8000/posts')
         .then(response => response.json())
         .then(data => {
             blogPosts = data;
