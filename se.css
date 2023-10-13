@@ -65,7 +65,7 @@ video {
     font-size: 15px;
     transition: all .3s ease;
     box-shadow: #968fd8 0px 10px 0px 0px;
-    color: hsl(0, 0%, 100%);
+    color: #E8BCB9;
    }
    
    .b1:hover {
@@ -195,8 +195,11 @@ video {
 .se {
   width: 200px;
   height: auto;
-	-webkit-animation: se 1.5s ease-in-out infinite both;
-	        animation: se 1.5s ease-in-out infinite both;
+  
+  background-color: #f1f1f1;
+  border-radius: 25px;
+	/* -webkit-animation: se 1.5s ease-in-out infinite both;
+	        animation: se 1.5s ease-in-out infinite both; */
 }
 .item5{
   margin-top:30px;
@@ -209,6 +212,7 @@ video {
   color: #1D1A39;
   cursor: pointer;
   padding: 18px;
+  max-width: 400px;
   width: 100% !important;
   text-align: center;
   border: none;
@@ -228,6 +232,7 @@ video {
   margin-top: 10px;
   border-radius: 10px;
   padding: 0 18px;
+  max-width: 350px;
   background-color: #e1b7c0;
   display: none;
   overflow: hidden;
@@ -355,8 +360,8 @@ video {
     display: inline-block !important;
     padding-top: 150px !important;
 }
-.typewriteranimation {
-    width: 550px;
+.typewriteranimation1 {
+    width: 500px;
     font-size: 2em;
     letter-spacing: 10px;
     font-family: monospace;
@@ -365,8 +370,23 @@ video {
     overflow: hidden;
     flex-shrink: 0 ;
 
-    animation: typing 4s steps(20), 
+    animation: typing 4s steps(25), 
         cursor 0.5s step-end infinite alternate;
+}
+.typewriteranimation2 {
+  width: 500px;
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 5px;
+  font-family: monospace;
+  border-right: 2px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  flex-shrink: 0 ;
+
+  animation: typing 4s steps(25), 
+      cursor 0.5s step-end infinite alternate;
 }
 
 .text-pop-up-top {
@@ -464,7 +484,7 @@ video {
 }
 
 .card p:hover {
-  flex: 4;
+  flex: 10;
 }
 
 .card p img {
