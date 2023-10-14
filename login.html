@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" 
+      type="image/png" 
+      href="http://example.com/myicon.png">
     <meta charset="UTF-8">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Login Page</title>
@@ -52,19 +55,20 @@
             padding: 10px 20px;
             cursor: pointer;
         }
-
+ 
         button:hover {
             background-color: #2980b9; 
         }
     </style>
+    <script src="login.js"></script>
 </head>
 <body>
     <h1>сука блять</h1> <br>
     <div class="login-container">
         <h2>Login</h2>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password"><br>
-        <button>Login</button>
+        <input type="text" placeholder="Username" id="username">
+        <input type="password" placeholder="Password" id="password"><br>
+        <button id="login">Login</button>
     </div>
 </body>
 </html>

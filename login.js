@@ -1,16 +1,24 @@
-const fs = require('fs');
+function login() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
 
-function checkLogin(id, password) {
-    // Read the JSON file containing login credentials
-    const data = fs.readFileSync('path/to/login/credentials.json');
-    const credentials = JSON.parse(data);
+    fetch('http://127.0.0.1:8000/login')//'ttp://localhost:8000/login')
+        .then(response => response.json())
+        .then(data => {
+            for (var i = 0; i < data.length; i++) {
+                if (username == data[i].username && password == data[i].password) {
+                    window.location.href = "se.html";
+                    return;
+                }
+            }
+            alert("Wrong username or password!");
+        })
+        .catch(error => {
+            console.error('Error loading data.json:', error);
+        });
+}
 
-    // Check if the entered ID and password match any user in the file
-    for (const user of credentials.users) {
-        if (user.id === id && user.password === password) {
-            return true;
-        }
-    }
-
-    return false;
+window.onload = function() {
+    document.getElementById('login').addEventListener('click', login);
+    console.log("loaded");
 }

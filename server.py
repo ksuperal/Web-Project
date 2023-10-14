@@ -17,6 +17,10 @@ app.add_middleware(
 with open('blogPosts.json', 'r') as file:
     blogPosts = json.load(file)
 
+# Load existing accounts
+with open('login.json', 'r') as file:
+    accounts = json.load(file)
+
 class BlogPost(BaseModel):
     title: str
     content: str
@@ -25,6 +29,10 @@ class BlogPost(BaseModel):
 @app.get('/posts')
 def get_blog_posts():
     return blogPosts
+
+@app.get('/login')
+def get_accounts():
+    return accounts
 
 @app.post('/newpost')
 def create_new_post(post: BlogPost = Body(...)):
