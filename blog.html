@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="blog.css" />
+
     <title>My Blog</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        .post {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-        .toggleReplies {
-            margin-top: 10px;
-        }
-        .replies {
-            margin-top: 10px;
-        }
-    </style>
-</head>
-<body>
-    <h1>SE BLOG</h1>
-
-    <div id="newPostSection" style="margin-bottom: 20px;">
-        <h2>Create a New Post</h2>
-        <input type="text" id="newPostTitle" placeholder="Post Title">
-        <br>
-        <textarea id="newPostContent" placeholder="Post Content"></textarea>
-        <br>
-        <button id="newPostButton">Post</button>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="loader1">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
     </div>
-
+    <button class="comic-button2"><a href="se.html">Back</a></button>
+    <h1 class="title">SE BLOG</h1>
+    <form class="form">
+      <div id="newPostSection" style="margin-bottom: 20px">
+        <p class="heading">Create a New Post</p>
+        <input
+          type="text"
+          id="newPostTitle"
+          class="input"
+          placeholder="Post Title"
+        />
+        <br />
+        <textarea
+          id="newPostContent"
+          class="input"
+          placeholder="Post Content"
+        ></textarea>
+        <br />
+        <button class="btn" id="newPostButton">Post</button>
+      </div>
+    </form>
+    <!-- 
+        <p class="heading">LOGIN</p>
+        <input placeholder="Username" class="input" type="text">
+        <input placeholder="Password" class="input" type="password">
+        <button class="btn">Submit</button>
+    </form> -->
     <div id="blogPosts"></div>
 
-    
-
     <script src="blog.js"></script>
-</body>
+  </body>
 </html>
