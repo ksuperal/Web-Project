@@ -14,31 +14,33 @@
         <h1>Online Resources</h1>
         <div class="side-content">
           <p>
-            <a href="https://www.w3schools.com/">W3Schools</a>
+            <a class="odd" href="https://www.w3schools.com/">W3Schools</a>
           </p>
           <p>
             <a href="https://www.codecademy.com/">Codecademy</a>
           </p>
           <p>
-            <a href="https://www.freecodecamp.org/">FreeCodeCamp</a>
+            <a class="odd" href="https://www.freecodecamp.org/">FreeCodeCamp</a>
           </p>
           <p>
             <a href="https://www.udemy.com/">Udemy</a>
           </p>
           <p>
-            <a href="https://www.khanacademy.org/">Khan Academy</a>
+            <a class="odd" href="https://www.khanacademy.org/">Khan Academy</a>
           </p>
           <p>
             <a href="https://www.codeavengers.com/">Code Avengers</a>
           </p>
           <p>
-            <a href="https://www.code.org/">Code.org</a>
+            <a class="odd" href="https://www.code.org/">Code.org</a>
           </p>
           <p>
             <a href="https://www.codecombat.com/">CodeCombat</a>
           </p>
           <p>
-            <a href="https://www.codeconquest.com/">Code Conquest</a>
+            <a class="odd" href="https://www.codeconquest.com/"
+              >Code Conquest</a
+            >
           </p>
           <p>
             <a href="https://www.codeasy.net/">Codeasy.net</a>
@@ -54,14 +56,23 @@
         <form>
           <div class="head-video">
             <input type="search" placeholder="Search.." class="search" />
-            <button class="comic-button1" onclick="addvideo()">Add VDO!</button>
-
+            <form>
+              <label>
+                <input
+                  class="comic-button1"
+                  type="file"
+                  id="videoinput"
+                  onclick="addvideo()"
+                />
+                Add video!</label
+              >
+            </form>
             <button class="comic-button2">
               <a href="http://127.0.0.1:5500/calendar.html"> Set Schedule</a>!
             </button>
           </div>
         </form>
-        <div class="inner-video">
+        <div class="inner-video" id="inner-video">
           <div class="video1">
             <iframe
               src="https://www.youtube.com/embed/xX0iomJ6I8U?si=aLLtBTg9Jlss52ev"
