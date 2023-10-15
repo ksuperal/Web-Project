@@ -21,10 +21,19 @@ with open('blogPosts.json', 'r') as file:
 with open('login.json', 'r') as file:
     accounts = json.load(file)
 
+# Load existing tokens
+with open('tokens.json', 'r') as file:
+    tokens = json.load(file)
+
 class BlogPost(BaseModel):
     title: str
     content: str
     subthread: list = []
+
+class Token(BaseModel):
+    userID: str
+    time: str
+    expire: str
 
 @app.get('/posts')
 def get_blog_posts():
@@ -33,6 +42,49 @@ def get_blog_posts():
 @app.get('/login')
 def get_accounts():
     return accounts
+
+# @app.get('/resister')
+# def get_accounts():
+#     return accounts
+
+@app.post('/register')
+def register_account(account: dict = Body(...)):
+    accounts.append(account)
+
+    with open('login.json', 'w') as file:
+        json.dump(accounts, file, indent=4)
+
+    return 'Account created successfully!'
+
+@app.post('/token')
+def require_token(token: dict = Body(...)):
+
+    #get current time
+    import datetime
+    now = datetime.datetime.now()
+    now = now.strftime('%Y-%m-%d %H:%M:%S')
+    
+        
+    for t in tokens:
+        if t['userID'] == token['userID']:
+            t['time'] = token['time']
+            t['expire'] = token['expire']
+            print('Renewed token!')
+            return
+
+    # if tokens not empty
+    if tokens:
+        print('Already logged in!')
+
+    tokens.append(token)
+    with open('tokens.json', 'w') as file:
+        json.dump(tokens, file, indent=4)
+    print('New token created!')
+    return 
+
+@app.get('/check-token')
+def check_token():
+    return tokens
 
 @app.post('/newpost')
 def create_new_post(post: BlogPost = Body(...)):

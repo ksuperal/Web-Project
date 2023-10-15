@@ -1,4 +1,38 @@
 [
-    {"username": "admin", "password": "admin"},
-    {"username": "USER", "password": "USER"}
+    {
+        "username": "admin",
+        "password": "admin"
+    },
+    {
+        "username": "USER",
+        "password": "USER"
+    },
+    {
+        "username": "Some",
+        "password": "10n3"
+    },
+    {
+        "username": "test",
+        "password": "test"
+    },
+    {
+        "username": "ambatt",
+        "password": "ambatt"
+    },
+    {
+        "username": "ambat",
+        "password": "ambat"
+    },
+    {
+        "username": "am",
+        "password": "am"
+    },
+    {
+        "username": "a",
+        "password": "a"
+    },
+    {
+        "username": "saf",
+        "password": "saf"
+    }
 ]
