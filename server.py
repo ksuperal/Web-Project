@@ -56,6 +56,11 @@ def register_account(account: dict = Body(...)):
 
     return 'Account created successfully!'
 
+@app.get('/tokenGet')
+def get_token():
+    print(tokens)
+    return tokens
+
 @app.post('/token')
 def require_token(token: dict = Body(...)):
 
@@ -82,9 +87,13 @@ def require_token(token: dict = Body(...)):
     print('New token created!')
     return 
 
-@app.get('/check-token')
-def check_token():
-    return tokens
+@app.post('/expiredToken')
+def expired_token(token: dict = Body(...)):
+    for t in tokens:
+        if t['userID'] == token['userID']:
+            tokens.remove(t)
+            print('Token removed!')
+            break
 
 @app.post('/newpost')
 def create_new_post(post: BlogPost = Body(...)):

@@ -1,4 +1,51 @@
 
+var userID = 0;
+var loggedIn = false;
+
+window.onload = function() {
+  userID = fetchUserID();
+
+  if (userID != 0) {
+    loggedIn = true;
+  }
+
+  console.log("loggedInAs: " + userID);
+  console.log("loggedIn: " + loggedIn);
+  document.getElementById('login-div').addEventListener('click', () => {
+    window.location.href = `login.html`;
+  });
+
+}
+
+function fetchUserID() {
+  if (userID == 0) {
+    fetch('http://localhost:8000/tokenGet')
+      .then(response => response.json())
+      .then(data => {
+        var expire = data[0].expire;
+        var now = new Date().getTime();
+        if (now > expire) {
+          // loggedIn = false;
+          //delete expired token
+          fetch('http://localhost:8000/expiredToken', {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              "userID": userID
+            })
+          });
+          return 0;
+        }
+        console.log("token: " + data[0].userID);
+        return data[0].userID;
+        // console.log("loggedInAs: " + userID);
+        // console.log("loggedIn: " + loggedIn);
+      });
+    }
+  }
+
 document.addEventListener("DOMContentLoaded", function () {
 
 window.addEventListener("load", () => {
