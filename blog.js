@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderBlogPosts() {
         const blogPostsContainer = document.getElementById('blogPosts');
         blogPostsContainer.innerHTML = '';
+        blogPosts.reverse();
 
         blogPosts.forEach((post, index) => {
             const postElement = document.createElement('div');
@@ -125,4 +126,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     renderBlogPosts();
+
+    document.getElementById('searchButton').addEventListener('click', function () {
+        const searchInput = document.getElementById('searchInput').value;
+    
+        if (searchInput) {
+            // Send a GET request to the server to search for posts
+            fetch(`http://localhost:8000/search?query=${searchInput}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the blogPosts array with the filtered results
+                    blogPosts = data;
+                    renderBlogPosts();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        } else {
+            // If search input is empty, reload all blog posts
+            fetch('http://localhost:8000/posts')
+                .then(response => response.json())
+                .then(data => {
+                    blogPosts = data;
+                    renderBlogPosts();
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        }
+    });
+    
 });
+
+

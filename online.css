@@ -398,9 +398,9 @@
     border: #1D1A39 2px solid;
     background-color: transparent;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 50px;
-    overflow-x: auto;
+    overflow-y: auto;
   }
   .video1{
     margin-top: 30px;

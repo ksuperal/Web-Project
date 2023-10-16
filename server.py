@@ -25,6 +25,14 @@ with open('login.json', 'r') as file:
 with open('tokens.json', 'r') as file:
     tokens = json.load(file)
 
+
+with open('videos.json', 'r') as file:
+    videos = json.load(file)
+
+class VideoRequest(BaseModel):
+    url: str
+    title: str
+
 class BlogPost(BaseModel):
     title: str
     content: str
@@ -35,6 +43,26 @@ class Token(BaseModel):
     time: str
     expire: str
 
+# Initialize an empty list to store videos
+
+
+# Endpoint to add a new video
+@app.post("/add_video")
+async def add_video(video: VideoRequest = Body(...)): 
+    videos.append(video.dict())
+
+    with open('videos.json', 'w') as file:
+        json.dump(videos, file, indent=4)
+
+    return 'videocreated successfully!'
+    
+
+# Endpoint to get all videos
+@app.get("/videos")
+async def get_videos():
+    return videos
+
+
 @app.get('/posts')
 def get_blog_posts():
     return blogPosts
@@ -42,6 +70,7 @@ def get_blog_posts():
 @app.get('/login')
 def get_accounts():
     return accounts
+
 
 # @app.get('/resister')
 # def get_accounts():
