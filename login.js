@@ -2,6 +2,7 @@
 const web = 'http://localhost:8000/'
 
 window.onload = function() {
+
     document.getElementById('login').addEventListener('click', login);
     document.getElementById('register').addEventListener('click', register);
     document.getElementById('username').addEventListener('keyup', function(event) {
@@ -22,7 +23,32 @@ window.onload = function() {
 
     document.getElementById('alert').style.display = "none";
 
-    // console.log("loaded");
+    //check if token exists
+    fetch(web + 'tokenGet')
+        .then(response => response.json())
+        .then(data => {
+            if (data.length == 0) {
+                console.log("no token");
+                return;
+            }
+            var expire = data[0].expire;
+            var now = new Date().getTime();
+            if (now > expire) {
+                //delete expired token
+                fetch(web + 'expiredToken', {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        "userID": userID
+                    })
+                });
+                console.log("token expired");
+                return;
+            }
+            window.location.href = `se.html`;
+        });
 }
 
 function login() {

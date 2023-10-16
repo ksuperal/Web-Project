@@ -578,6 +578,7 @@ video {
   overflow: hidden;
 }
 .HHH:hover{
+  border-radius: 20px;
   color: white;
   background-color: #451952 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;

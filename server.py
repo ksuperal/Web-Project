@@ -80,6 +80,7 @@ def require_token(token: dict = Body(...)):
     # if tokens not empty
     if tokens:
         print('Already logged in!')
+        return
 
     tokens.append(token)
     with open('tokens.json', 'w') as file:

@@ -1,16 +1,19 @@
 
 var userID = 0;
-var loggedIn = false;
+// var loggedIn = false;
 
 window.onload = function() {
-  userID = fetchUserID();
+  // userID = fetchUserID();
 
-  if (userID != 0) {
-    loggedIn = true;
-  }
+  // if (userID != 0) {
+  //   loggedIn = true;
+  // }
 
-  console.log("loggedInAs: " + userID);
-  console.log("loggedIn: " + loggedIn);
+  // console.log("loggedInAs: " + userID);
+  // console.log("loggedIn: " + loggedIn);
+
+  fetchUserID();
+
   document.getElementById('login-div').addEventListener('click', () => {
     window.location.href = `login.html`;
   });
@@ -18,10 +21,23 @@ window.onload = function() {
 }
 
 function fetchUserID() {
-  if (userID == 0) {
+  // if (userID == 0) {
     fetch('http://localhost:8000/tokenGet')
       .then(response => response.json())
       .then(data => {
+        if (data.length == 0) {
+          console.log("no token");
+          document.getElementById('login-text').innerHTML = "Login";
+
+          console.log("loggedInAs: " + document.getElementById('login-text').innerHTML);
+          var elements = document.querySelectorAll('.dropdown');
+        
+          elements.forEach(function(element) {
+            element.style.visibility = 'hidden';
+          });
+
+          return;
+        }
         var expire = data[0].expire;
         var now = new Date().getTime();
         if (now > expire) {
@@ -36,14 +52,26 @@ function fetchUserID() {
               "userID": userID
             })
           });
-          return 0;
+          // return 0;
+          console.log("token expired");
+          document.getElementById('login-text').innerHTML = "Login";
+
+          console.log("loggedInAs: " + document.getElementById('login-text').innerHTML);
+          var elements = document.querySelectorAll('.dropdown');
+        
+          elements.forEach(function(element) {
+            element.classList.toggle('hidden');
+          });
+
+          return;
         }
         console.log("token: " + data[0].userID);
-        return data[0].userID;
+        document.getElementById('login-text').innerHTML = data[0].userID;
+        // return data[0].userID;
         // console.log("loggedInAs: " + userID);
         // console.log("loggedIn: " + loggedIn);
       });
-    }
+    // }
   }
 
 document.addEventListener("DOMContentLoaded", function () {
