@@ -368,7 +368,7 @@ video {
   background-color: #e1b7c0;
   display: none;
   overflow: hidden;
-
+  text-align: justify;
   transition: max-height 0.2s ease-out; 
 }
 @-webkit-keyframes se {

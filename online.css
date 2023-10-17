@@ -48,7 +48,6 @@
     transition: 0.2s;
     font-size: 15px;
     border-radius: 20px;
-    margin-left: 50px;
     padding-left: 60px;
   }
   
@@ -85,6 +84,14 @@
     height: 40px;
     text-align: center;
     border-radius: 20px;
+}
+.search2{
+  margin-top: 50px;
+  margin-left:20px ;
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  border-radius: 20px;
 }
 
 .body1{
@@ -234,10 +241,10 @@
   }
 }
 .comic-button2 {
-    width: 200px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 50px;
+    width: 100px;
+    height: 60px;
+    margin-top: 40px;
+    margin-left: 20px;
     display: inline-block;
     padding: 10px 20px;
     font-size: 15px;
@@ -316,10 +323,11 @@
   }
 .comic-button1 {
     display: inline-block;
-    width: 200px;
-    height: 40px;
-    margin-top: 50px;
-    margin-left: 300px;
+    width: 100px;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px 20px;
     font-size: 15px;
     font-weight: bold;
@@ -356,7 +364,7 @@
   .comic-button3 {
     width: 100px;
     height: 40px;
-    margin-left: 50px;
+    margin-left: 30%;;
     display: inline-block;
     font-size: 15px;
     font-weight: bold;
@@ -368,6 +376,7 @@
     border-radius: 10px;
     box-shadow: 5px 5px 0px #000;
     transition: all 0.3s ease;
+    z-index: 3000 !important;
   }
   
   .comic-button3:hover {

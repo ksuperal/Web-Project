@@ -4,19 +4,12 @@
   <link rel="icon" type="image/x-icon" href="resources/se.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="online.css" />
-  
+
   <title>Online Resources</title>
 </head>
 
 <body>
   <div class="container">
-    <div class="loader">
-      <div class="loader1">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-    </div>
     <div class="main1">
       <div class="side">
         <h1>Online Resources</h1>
@@ -55,8 +48,9 @@
           </p>
         </div>
       </div>
+
       <button class="comic-button3">
-        <a href="http://127.0.0.1:5500/se.html"> Back</a>
+        <a href="http://127.0.0.1:8000/se.html"> Back</a>
       </button>
     </div>
     <div class="main2">
@@ -64,18 +58,32 @@
         <form>
           <div class="head-video">
             <input type="search" placeholder="Search.." class="search" />
-            <form id="addVideoForm">
-              <input type="text" id="videoUrl" placeholder="Video URL">
-              <input type="text" id="videoTitle" placeholder="Video Title">
-              <button type="submit" id="submit">Add Video</button>
-          </form>
+            <button class="comic-button1">
+              <a href="http://127.0.0.1:5500/calendar.html"> search</a>!
+            </button>
+            <form id="addVideoForm" class="search2">
+              <input
+                class="search2"
+                type="text"
+                id="videoUrl"
+                placeholder="Video URL"
+              />
+              <input
+                class="search2"
+                type="text"
+                id="videoTitle"
+                placeholder="Video Title"
+              />
+              <button class="comic-button2" type="submit" id="submit">
+                Add Video
+              </button>
+            </form>
             <button class="comic-button2">
               <a href="http://127.0.0.1:5500/calendar.html"> Set Schedule</a>!
             </button>
           </div>
         </form>
         <div class="inner-video" id="videosContainer">
-          
           <div class="video1">
             <iframe
               src="https://www.youtube.com/embed/xX0iomJ6I8U?si=owhzrKMcY8WZ8TZI"
@@ -89,6 +97,5 @@
       </div>
     </div>
   </div>
- 
 </body>
- <script src="online.js"></script>
+<script src="online.js"></script>
