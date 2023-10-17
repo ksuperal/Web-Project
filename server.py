@@ -134,6 +134,16 @@ def create_new_post(post: BlogPost = Body(...)):
 
     return 'Post created successfully!'
 
+@app.get('/search/')
+def search_posts(query: str):
+    filtered_posts = [post for post in blogPosts if query.lower() in post['title'].lower()]
+    return filtered_posts
+
+@app.get('/searchvid/')
+def search_video(query: str):
+    filtered_video = [video for video in videos if query.lower() in video['title'].lower()]
+    return filtered_video
+
 if __name__ == '__main__':
     import uvicorn
     uvicorn.run(app, host='127.0.0.1', port=8000)

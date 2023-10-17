@@ -6,5 +6,13 @@
     {
         "url": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/QOcS0LCWRK4?si=DolpqtvSi7gDAevb\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
         "title": "kuay"
+    },
+    {
+        "url": "https://www.youtube.com/watch?v=M-R0LEuJrMM",
+        "title": "valo"
+    },
+    {
+        "url": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/M-R0LEuJrMM?si=vfBa0jI8L736HXcc\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>",
+        "title": "valo"
     }
 ]

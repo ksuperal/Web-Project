@@ -1,6 +1,5 @@
 
 html{
-  background-color: #1D1A39;
   font-family: monospace !important;
   scroll-behavior: smooth;
 
@@ -8,7 +7,6 @@ html{
 
 
  a{
-    color:#E8BCB9 !important;
     text-decoration: none;
 
 }
@@ -21,12 +19,12 @@ a:hover{
 } */
 
 .kmitl{
-    margin-top: 50px;
-    margin-left: 100px;
+    margin-top: 60px;
+    margin-left: 60px;
     width: 200px;
 }
-.background{
-    border-radius: 40px;
+.background1{
+  
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
@@ -34,38 +32,49 @@ a:hover{
     height: 100vh;  
     display: flex;
     justify-content: flex-start;
+    background-image: linear-gradient(#1e3f57, white);
 }
 .background2{
     padding-top: 100px ;
     padding-bottom: 100px;
-    margin-bottom: 30px;
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 40px;
-    height: auto ;
+    padding-left: 25%;
+    background-image: linear-gradient( white ,#1e3f57);
+    height: 100vh ;
     width: 100% ;
-    background-color:#bf8f99 ;   
     overflow: hidden ;
     display: flex;
-
+}
+.background2 .h1{
+    margin-left: 100px;
+    margin-top: 100px;
+    color: #1e3f57;
+    font-size: 2em;
+    font-weight: bold;
 }
 .footer {
-  border-radius: 40px;
   
-  height: 250px;
+  height: 200px;
   width: 100%;
   background-color: #1e3f57;
   color: white;
   text-align: center;
-  z-index: -2;
 }
 .fcontainer{
   display: flex;
+  height:200px;
 }
 .k-icon{
   width: 400px;
-  border-right: 1px solid #E8BCB9;
+  border-right: 2px solid white;
+}
+.instagram{
+  background-color: #E4405F !important;
+}
+.twitter{
+  background-color: #1DA1F2 !important;
+}
+.facebook{
+  background-color: #1877F2 !important;
 }
 .social{
   margin-left: 100px;
@@ -73,9 +82,9 @@ a:hover{
 .wrapper {
   display: inline-flex;
   list-style: none;
-  height: 120px;
+  height: 100px;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 20px;
   font-family: "Poppins", sans-serif;
   justify-content: center;
 }
@@ -215,6 +224,10 @@ video {
   .dropdown {
     position: relative;
     display: inline-block;
+    color: white !important;
+    font-weight: bold !important;
+    margin-left: 20px !important;
+    font-size: 20px !important;
 
   }
   .dropdown-content {
@@ -238,7 +251,7 @@ video {
   
   .dropdown-content a:hover {
     background-color: #f1f1f1;
-    background-color: #451952 !important;
+    background-color: #1e3f57 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
@@ -259,7 +272,7 @@ video {
     top: 0 !important;
     left: -40px !important;
     transform: skewX(45deg) !important;
-    background-color: purple !important;
+    background-color: #306e9b !important;
     z-index: -1 !important;
     transition: all 1s !important;
   }
@@ -271,26 +284,18 @@ video {
     animation: fadeInAnimation ease 3s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
-    padding-left: 100px !important;
+    padding-left: 60px !important;
     position: relative !important;
     padding-top: 50px !important;
-    height: auto !important;
-    width: 40% !important;
+    width: 10% !important;
     flex-shrink: 0 !important;
+    position: absolute !important;
 }
 
 .item2{
-    position: fixed !important;
-    border-radius: 30px;
-    animation: fadeInAnimation ease 2s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-    margin-left: 85% !important;
-    height:100vh !important;
-    width: 43% !important;
-    background-color: #2d2957 !important;
-    flex-direction: column !important;
-    visibility: hidden;
+    margin-left: 25% !important;
+    color: #1e3f57 !important;
+    font-size: 40px;
     
 }
 .item3{
@@ -315,15 +320,16 @@ video {
   height: auto;
   filter: brightness(0.2);
 
-	-webkit-animation: se 1.5s ease-in-out infinite both;
-	        animation: se 1.5s ease-in-out infinite both;
+	/* -webkit-animation: se 1.5s ease-in-out infinite both;
+	        animation: se 1.5s ease-in-out infinite both; */
 
   /* border: #140e50 1px solid; */
 }
 #login-div{
   width: 200px; 
   border-radius: 25px;
-  box-shadow: 0px 0px 10px rgba(132, 19, 149, 0.3);
+  background-color: white;
+  box-shadow: 0px 0px 10px white;
 }
 #login-text{
   text-align: center; 
@@ -439,27 +445,38 @@ video {
             animation-timing-function: ease-out;
   }
 }
-
+.navitem{
+  color: #ffffff !important;
+  font-weight: bold !important;
+  height: 50px;
+  margin-left: 20px !important;
+  padding-right: 5px !important;
+  font-size: 20px !important;
+  /* border-right: 3px solid !important; */
+  border-top-right-radius: 15px;
+}
+.navitem:hover{
+  color:  #1e3f57!important;
+  background-color: white;
+}
 .tag{
+  display: flex;
+  flex-direction: row !important;
   padding-left: 30px;
   padding-top: 10px;
+  position: absolute;
   position: fixed !important;
-  color: #E8BCB9 !important;
-    border-radius: 30px;
+  color: white !important;
     animation: fadeInAnimation ease 2s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
-    margin-left: 90% ;
+    margin-left: 50% ;
     height:30px !important;
-    width: 43% !important;
-    background-color: #2d2957 !important;
-    
+    width: 47% !important;
+    box-shadow:1px 1px 0px #ffffff;
+
 }
-.tag:hover{
-  box-shadow:10px 10px 0px #968fd8;
-  top:-5px;
-  left:-5px;
-}
+
 
 
 @keyframes animate {
@@ -488,13 +505,12 @@ video {
       transform: rotate(45deg) translate(20px, 20px);
   }
 }
-.typewriterdiv{
-    position: relative !important;
-    display: inline-block !important;
-    padding-top: 150px !important;
-}
+
 .typewriteranimation1 {
-    width: 500px;
+    margin-top: 20%;
+    padding-left: 450px !important;
+    width: 250px;
+    margin-left: 150px;
     font-size: 2em;
     letter-spacing: 10px;
     font-family: monospace;
@@ -507,11 +523,12 @@ video {
         cursor 0.5s step-end infinite alternate;
 }
 .typewriteranimation2 {
-  width: 500px;
-  margin-top: 50px;
-  font-weight: bold;
-  font-size: 1.5em;
+  width: 850px;
+  margin-top: 200px;
+  margin-left: 350px;
+  font-size: 10em;
   letter-spacing: 5px;
+  color: #1e3f57;
   font-family: monospace;
   border-right: 2px solid;
   white-space: nowrap;
@@ -580,7 +597,7 @@ video {
 .HHH:hover{
   border-radius: 20px;
   color: white;
-  background-color: #451952 !important;
+  background-color: #1e3f57!important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
@@ -593,7 +610,7 @@ video {
   top: 0;
   left: -40px;
   transform: skewX(45deg);
-  background-color: purple;
+  background-color: #1e3f57;
   z-index: -1;
   transition: all 1s;
 }
@@ -604,9 +621,11 @@ video {
 .card {
   width: 800px;
   height: 400px;
+  margin-top: 70px !important;
   border-radius: 20px;
   background: #212121;
   display: flex;
+  position: absolute;
   gap: 5px;
   padding: .4em;
 }

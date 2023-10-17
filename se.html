@@ -15,91 +15,74 @@
   <body>
     <script src="se.js"></script>
 
-    <div class="background" id="bg1">
-      <video playsinline autoplay muted loop>
-        <source src="resources/bg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div class="loader">
-        <div class="loader1">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-        </div>
+    <div class="loader">
+      <div class="loader1">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
       </div>
+    </div>
+    <div class="background1" id="bg0" ">
       <div class="item1">
         <div id="login-div">
           <img src="resources/se.png" alt="se" class="se" />
           <p id="login-text"></p>
         </div>
         <br />
-        <div class="typewriterdiv">
-          <div class="typewriteranimation1">
-            Welcome To <br />Software Engineering<br />KMITL
-          </div>
-        </div>
       </div>
-
-      <div class="tag" onclick="toggleVisibility()">Navbar</div>
-      <div class="item2">
+      <div class="tag">
         <div>
-          <button class="b1"><a href="#bg1">About</a></button>
+          <a class="navitem" href="#bg0">About</a>
         </div>
         <div>
-          <button class="b1">Program</button>
+          <a class="navitem" href="#bg1">Program</a>
         </div>
         <div>
-          <button class="b1">Admissions</button>
+          <a class="navitem" href="#bg2">Admissions</a>
         </div>
         <div>
-          <button class="b1">Industry</button>
+          <a class="navitem" href="#bg2">News</a>
         </div>
         <div>
-          <button class="b1"><a href="#bg2">News</a></button>
+          <a class="navitem" href="#bg2">Event</a>
         </div>
-        <div>
-          <button class="b1">Events</button>
-        </div>
-        <!-- <div>
-          <button class="b1">Research</button>
-        </div> -->
+       
         <div class="dropdown">
-          <button class="dropbtn">Online Coworking Space</button>
+          Online-Co-Space
           <div class="dropdown-content">
             <a class="HHH" href="./online.html">Online Resource</a>
             <a class="HHH" href="./blog.html">Blog</a>
           </div>
         </div>
       </div>
+      <div>
+        <div class="typewriteranimation2">Welcome To<br>Software <br>Engineering</div>
+      </div>
     </div>
-    <div>
-      <div class="background2" id="bg2">
-        <div class="item3">
-          <div class="card">
+    <div class="background2" id="bg2">
+        <h1>News & Event</h1>
+        <div class="card">
+          <p><img src="resources/d1.jpg" /></p>
+          <p><img src="resources/d2.jpg" /></p>
+          <p><img src="resources/d3.jpg" /></p>
+          <p><img src="resources/d3.png" /></p>
+          <p><img src="resources/se.png" /></p>
+          <p><img src="resources/se.png" /></p>
+        </div>
+    </div>
+
+   
+
+    <!-- <div class="card">
             <p><img src="resources/d1.jpg" /></p>
             <p><img src="resources/d2.jpg" /></p>
             <p><img src="resources/d3.jpg" /></p>
             <p><img src="resources/d3.png" /></p>
-            <!-- <p><img src="resources/se.png" /></p> -->
-            <!-- <p><img src="resources/se.png" /></p> -->
-          </div>
-          <a class="HHH">News & Events</a>
-          <button class="accordion">click for more information</button>
-          <div class="panel">
-            <p>
-              1. <br />
-              2. <br />
-            </p>
-          </div>
-        </div>
-        <div class="item4">
-          <a class="HHH">SE?</a>
-          <div class="typewriteranimation2">
-            Let's get started! <br />What is Software Engineering?
-          </div>
-          <br />
-          <div class="item5">
-            <button class="accordion">Software Engineering#0</button>
+            <p><img src="resources/se.png" /></p>
+            <p><img src="resources/se.png" /></p>
+          </div> -->
+
+    <!-- <button class="accordion">Software Engineering#0</button>
             <div class="panel">
               <p>
                 Welcome to our Software Engineering Program! In this dynamic and
@@ -157,30 +140,42 @@
                 creativity, intellectual challenge, and the chance to make a
                 tangible impact on the world.
               </p>
-            </div>
-          </div>
+            </div> -->
+
+    <div class="footer">
+      <div class="fcontainer">
+        <div class="k-icon">
+          <img src="resources/KMITL_Logo.png" class="kmitl" />
         </div>
-      </div>
-      <div class="footer">
-        <div class="fcontainer">
-          <div class="k-icon">
-            <img src="resources/KMITL_Logo.png" class="kmitl" />
-          </div>
-          <div class="social">
-            <ul class="wrapper">
-              <li class="icon facebook">
-                <a href="https://www.facebook.com/profile.php?id=100066929134562" target="_blank" class="tooltip">Facebook<i class="fab fa-facebook-f"></i></a>
-              </li>
-              <li class="icon twitter">
-                <a href="https://www.twitter.com" target="_blank" class="tooltip">Twitter<i class="fab fa-twitter"></i></a>
-              </li>
-              <li class="icon instagram">
-                <a href="https://www.instagram.com/se_kmitl/" target="_blank" class="tooltip">Instagram<i class="fab fa-instagram"></i></a>
-              </li>
-            </ul>
-            <p>© 2022 Software Engineering, King Mongkut's Institute of Technology Ladkrabang</p>        
-          </div>
-          
+        <div class="social">
+          <ul class="wrapper">
+            <li class="icon facebook">
+              <a
+                href="https://www.facebook.com/profile.php?id=100066929134562"
+                target="_blank"
+                class="tooltip"
+                >Facebook<i class="fab fa-facebook-f"></i
+              ></a>
+            </li>
+            <li class="icon twitter">
+              <a href="https://www.twitter.com" target="_blank" class="tooltip"
+                >Twitter<i class="fab fa-twitter"></i
+              ></a>
+            </li>
+            <li class="icon instagram">
+              <a
+                href="https://www.instagram.com/se_kmitl/"
+                target="_blank"
+                class="tooltip"
+                >Instagram<i class="fab fa-instagram"></i
+              ></a>
+            </li>
+          </ul>
+          <p>
+            © 2023 Software Engineering, King Mongkut's Institute of Technology
+            Ladkrabang
+          </p>
+        </div>
       </div>
     </div>
     <script src="se.js"></script>

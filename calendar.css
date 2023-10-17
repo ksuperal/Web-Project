@@ -29,7 +29,7 @@
     display: flex;
   
     border-radius: 10px;
-    background-color: #1D1A39;
+    background-color: #1e3f57;
   }
   .left {
     width: 60%;
@@ -45,7 +45,7 @@
     justify-content: space-between;
     color: #1D1A39;
     border-radius: 5px;
-    background-color: #E8BCB9;
+    background-color: #7590a4;
   }
   /* set after behind the main element */
   .calendar::before,
@@ -94,9 +94,14 @@
     font-weight: 500;
     text-transform: capitalize;
   }
+  .date{
+    color:white;
+  }
   .weekdays div {
     width: 14.28%;
     height: 100%;
+    color: white;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -119,10 +124,9 @@
     justify-content: center;
     cursor: pointer;
     color: var(--primary-clr);
-    border: 1px solid #1D1A39;
     border-radius: 10px;
   }
-  .calendar .days .day:nth-child(7n + 1) {
+  /* .calendar .days .day:nth-child(7n + 1) {
     border-left: 2px solid #1D1A39;
   }
   .calendar .days .day:nth-child(7n) {
@@ -134,7 +138,7 @@
   .calendar .days .day:nth-child(n + 29) {
     border-bottom: 2px solid #1D1A39;
   }
-  
+   */
   .calendar .days .day:not(.prev-date, .next-date):hover {
     color: #fff;
     background-color: var(--primary-clr);
@@ -146,8 +150,8 @@
   .calendar .days .active {
     position: relative;
     font-size: 2rem;
-    color: #d45850;
-    background-color: #F39F5A;
+    color: white;
+    background-color: #ff5252;
   }
   .calendar .days .active::before {
     content: "";
@@ -220,10 +224,7 @@
       background: rgb(255, 255, 255);
       color: blueviolet;
       border-radius: .5rem;
-      border-bottom: 2px solid blueviolet;
-      border-right: 2px solid blueviolet;
-      border-top: 2px solid white;
-      border-left: 2px solid white;
+      border: hidden;
       transition-duration: 1s;
       transition-property: border-top, 
          border-left, 
@@ -431,7 +432,6 @@
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color: #e5e4ec;
     border: 2px solid #ffffff;
     opacity: 0.5;
     border-radius: 50%;
@@ -529,6 +529,7 @@
     color: var(--primary-clr);
   }
   .add-event-footer {
+    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -548,16 +549,19 @@
     border: 1px solid var(--primary-clr);
   }
   .add-event-btn{
-    background-color: #1e574f;
+    color: white;
+    background-color: #ff5252;
   }
   .add-event-footer .add-event-btn:hover {
-    color: #E8BCB9 !important;
-    background-color: #451952 !important;
+    color: white !important;
+    background-color: #ff5252 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: -5px !important;
     left: -5px !important;
   }
-  
+  .add-event{
+    color: white;
+  }
 .event{
   width:70%;
 }  
