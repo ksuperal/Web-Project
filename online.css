@@ -8,6 +8,14 @@
     background-color: white;
    
 }
+h2{
+  color: #1D1A39 !important;
+  padding-left: 20px;
+  font-size: 20px;
+  border-top-right-radius: 40px;
+  background-color: #fff;
+  width:300px;
+}
 .main1{
     direction: flex;
 }
@@ -428,6 +436,9 @@
     border-radius: 20px;
     width: 390px;
     height: 300px;
+}
+.video{
+  margin-left: 20%;
 }
 
   .body1{
