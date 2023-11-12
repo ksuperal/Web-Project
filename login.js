@@ -1,3 +1,11 @@
+/*
+TODO
+
+-hidden on load for dropdown
+-visible when logged in
+
+*/
+
 
 const web = 'http://localhost:8000/'
 
@@ -41,7 +49,7 @@ window.onload = function() {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        "userID": userID
+                        "userID": data[0].userID
                     })
                 });
                 console.log("token expired");
@@ -52,87 +60,80 @@ window.onload = function() {
 }
 
 function login() {
+    
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    fetch(web +'login')
-        .then(response => response.json())
-        .then(data => {
-            for (var i = 0; i < data.length; i++) {
-                if (username == data[i].username && password == data[i].password) {
-                    saveCredential();
-                    fetch(web + 'token', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            "userID": idmapping(i),
-                            "time": new Date().getTime(),
-                            "expire": new Date().getTime() + 3600000
-                        })
-                    })
-                    window.location.href = `se.html`;
-                    return;
-                }
-            }
+    if (username === "" || password === "") {
+        document.getElementById('alert').innerHTML = "Username or password cannot be empty!";
+        document.getElementById('alert').style.display = "block";
+        const container = document.querySelector('.login-container');
+        container.style.height = '40%';
+        return;
+    }
+
+    fetch(web + 'login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "username": username,
+            "password": password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (data.message != "Login successful!") {
             document.getElementById('alert').innerHTML = "Wrong username or password!";
             document.getElementById('alert').style.display = "block";
 
             const container = document.querySelector('.login-container');
             container.style.height = '40%';
-        })
-        .catch(error => {
-            console.error('Error loading data.json:', error);
-        });
+            return;
+        }
+        else{
+            saveCredential();
+            window.location.href = `se.html`;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 function register() {
-
+    
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
-    fetch(web +'login')
-        .then(response => response.json())
-        .then(data => {
-            if (username == "" || password == "") {
-                document.getElementById('alert').innerHTML = "Username or password cannot be empty!";
-                document.getElementById('alert').style.display = "block";
+    if (username === "" || password === "") {
+        document.getElementById('alert').innerHTML = "Username or password cannot be empty!";
+        document.getElementById('alert').style.display = "block";
+        const container = document.querySelector('.login-container');
+        container.style.height = '40%';
+        return;
+    }
 
-                const container = document.querySelector('.login-container');
-                container.style.height = '40%';
-                return;
-            }
-            for (var i = 0; i < data.length; i++) {
-                if (username == data[i].username) {
-                    document.getElementById('alert').innerHTML = "Username already exists!";
-                    document.getElementById('alert').style.display = "block";
-
-                    const container = document.querySelector('.login-container');
-                    container.style.height = '40%';
-                    return;
-                }
-            }
-            saveCredential();
-            fetch(web + 'register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    "username": username,
-                    "password": password
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Register successfully!");
-            })
-            .catch(error => {
-                console.error('Error loading data.json:', error);
-            });
-        }
-    )
+    fetch(web + 'register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "username": username,
+            "password": password
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        // Additional logic based on the response, e.g., redirect to another page on successful login
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 }
 
 function saveCredential(){
@@ -148,17 +149,5 @@ function saveCredential(){
     } else {
         localStorage.removeItem("username");
         localStorage.removeItem("password");
-    }
-}
-
-function idmapping(id){
-    if (id / 10 < 1) {
-        return "000" + id;
-    } else if (id / 100 < 1) {
-        return "00" + id;
-    } else if (id / 1000 < 1) {
-        return "0" + id;
-    } else {
-        return id;
     }
 }

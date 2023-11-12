@@ -3,8 +3,6 @@ from pydantic import BaseModel
 import json
 from fastapi.middleware.cors import CORSMiddleware
 
-
-
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -28,6 +26,10 @@ with open('tokens.json', 'r') as file:
 
 with open('videos.json', 'r') as file:
     videos = json.load(file)
+
+class User(BaseModel):
+    username: str
+    password: str
 
 class VideoRequest(BaseModel):
     url: str
@@ -67,55 +69,80 @@ async def get_videos():
 def get_blog_posts():
     return blogPosts
 
-@app.get('/login')
-def get_accounts():
-    return accounts
+@app.post("/login")
+def login(user: User):
+    for existing_user in accounts:
+        if existing_user['username'] == user.username and existing_user['password'] == user.password:
+            import datetime
+            now = datetime.datetime.now()
+            now = now.strftime('%Y-%m-%d %H:%M:%S')
 
+    
+            for t in tokens:
+                if t['userID'] == existing_user['userID']:
+                    t['time'] = now
+                    t['expire'] = now + datetime.timedelta(minutes=30) #expire after 30 minutes
+                    print('Renewed token!')
+                    return
 
-# @app.get('/resister')
-# def get_accounts():
-#     return accounts
+            # if tokens not empty
+            if tokens:
+                print('Already logged in!')
+                return
 
-@app.post('/register')
-def register_account(account: dict = Body(...)):
-    accounts.append(account)
+            tokens.append({"userID": existing_user['userID'], "time": now, "expire": now + datetime.timedelta(minutes=30)})
+            with open('tokens.json', 'w') as file:
+                json.dump(tokens, file, indent=4)
+            print('New token created!')
 
+            return {"message": "Login successful!"}
+    
+    return {"message": "Invalid credentials"}
+
+@app.post("/register")
+def register(user: User):
+    for existing_user in accounts:
+        if existing_user['username'] == user.username:
+            return {"message": "Username already exists"}
+
+    # Add the new user to the in-memory database and update the JSON file
+    accounts.append({"username": user.username, "password": user.password, "userID": str(accounts.length() + 1).zfill(6)})
     with open('login.json', 'w') as file:
         json.dump(accounts, file, indent=4)
 
-    return 'Account created successfully!'
+    return {"message": "Registration successful!"}
 
 @app.get('/tokenGet')
 def get_token():
     print(tokens)
     return tokens
 
-@app.post('/token')
-def require_token(token: dict = Body(...)):
+# @app.post('/token')
+# def require_token(token: dict = Body(...)):
 
-    #get current time
-    import datetime
-    now = datetime.datetime.now()
-    now = now.strftime('%Y-%m-%d %H:%M:%S')
+#     #get current time
+#     import datetime
+#     now = datetime.datetime.now()
+#     now = now.strftime('%Y-%m-%d %H:%M:%S')
     
         
-    for t in tokens:
-        if t['userID'] == token['userID']:
-            t['time'] = token['time']
-            t['expire'] = token['expire']
-            print('Renewed token!')
-            return
+#     for t in tokens:
+#         if t['userID'] == token['userID']:
+#             t['time'] = token['time']
+#             t['expire'] = token['expire']
+#             print('Renewed token!')
+#             return
 
-    # if tokens not empty
-    if tokens:
-        print('Already logged in!')
-        return
+#     # if tokens not empty
+#     if tokens:
+#         print('Already logged in!')
+#         return
 
-    tokens.append(token)
-    with open('tokens.json', 'w') as file:
-        json.dump(tokens, file, indent=4)
-    print('New token created!')
-    return 
+#     tokens.append(token)
+#     with open('tokens.json', 'w') as file:
+#         json.dump(tokens, file, indent=4)
+#     print('New token created!')
+#     return 
 
 @app.post('/expiredToken')
 def expired_token(token: dict = Body(...)):
