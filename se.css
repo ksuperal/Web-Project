@@ -17,7 +17,9 @@ a:hover{
     top: +5px !important;
     left: +5px !important;
 } */
-
+.tag{
+  background-color: #1e3f57 !important;
+}
 .kmitl{
     margin-top: 60px;
     margin-left: 60px;
@@ -37,19 +39,133 @@ a:hover{
 .background2{
     padding-top: 100px ;
     padding-bottom: 100px;
-    padding-left: 25%;
-    background-image: linear-gradient( white ,#1e3f57);
-    height: 100vh ;
-    width: 100% ;
+    padding-left: 5%;
+    background-image: linear-gradient(#1e3f57, white);
+    height: 80vh ;
     overflow: hidden ;
     display: flex;
 }
-.background2 .h1{
-    margin-left: 100px;
-    margin-top: 100px;
-    color: #1e3f57;
-    font-size: 2em;
+.bg2head{
+    margin-left: 40%;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    color: #cedce7;
+    width: 100%;
+    font-size: 3em;
     font-weight: bold;
+}
+.background3{
+  
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 80px;
+  padding-bottom: 300px;
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  height: auto;  
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-image: linear-gradient( white ,#1e3f57);
+}
+.bg3head{
+  padding-top: 30px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-radius: 20px;
+  background-color: #c9d2d8;
+  font-size: 60px;
+  font-weight: bold;
+  color: #1e3f57;
+  padding-bottom: 20px;
+  border: solid #1e3f57;
+}
+.innerbg3{
+  display: flex;
+  flex-direction: row;
+  height: auto;  
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+}
+.bg3inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  border-radius: 20px;
+
+  height: auto;  
+
+}
+.background4{
+  padding-top: 100px ;
+    padding-bottom: 100px;
+    background-image: linear-gradient( white,#1e3f57);
+    height: auto ;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden ;
+    display: flex;
+}
+.button-box{
+  margin-left: 30%;
+  width: 800px;
+  margin: 35px auto;
+  display: flex;
+    flex-direction: row;
+  position: relative;
+  border-radius: 10px;
+  background: #fff;
+}
+.toggle-btn1{
+  background-color: coral;
+  margin: 20px;
+  height: 60px;
+  width: 50%;
+  border: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+
+}
+.toggle-btn2{
+  background-color: white;
+  margin: 20px;
+
+  height: 60px;
+  width: 50%;
+  border: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
+.admission1{
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  margin-right: 10%;
+
+}
+.admission2{
+  margin-top:140px;
+  width: 80%;
+  height: auto;
+  position: absolute;
+  margin-left: 10%;
+  margin-right: 10%;
+  visibility: hidden;
+
 }
 .footer {
   
@@ -346,21 +462,25 @@ video {
 .accordion {
   border-radius: 10px;
   border: #140e50 2px solid !important;
-  background-color: #E8BCB9;
+  background-color: #e4d4d3;
   color: #1D1A39;
   cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
   padding: 18px;
-  max-width: 400px;
+  width: 500px !important;
+  height: 80px;
   width: 100% !important;
-  text-align: center;
+  text-align: center !important;
   border: none;
   outline: none;
   transition: background-color 0.4s; 
 }
 
 .active, .accordion:hover {
-  color: #E8BCB9;
-  background-color: #451952 !important;
+  color: #e4d4d3;
+  height: auto;
+  background-color: #1e3f57 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
@@ -370,10 +490,12 @@ video {
   margin-top: 10px;
   border-radius: 10px;
   padding: 0 18px;
-  max-width: 350px;
-  background-color: #e1b7c0;
+  max-width: 670px;
+  background-color: #e5d8db;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: none;
   overflow: hidden;
+  font-size: 15px;
   text-align: justify;
   transition: max-height 0.2s ease-out; 
 }
@@ -618,19 +740,20 @@ video {
 .HHH:hover::before {
   width: 160%;
 }
-.card {
-  width: 800px;
+
+.card1 {
+  width: 600px;
   height: 400px;
-  margin-top: 70px !important;
+  margin-top: 100px !important;
   border-radius: 20px;
-  background: #212121;
+  background: #19354a;
   display: flex;
   position: absolute;
   gap: 5px;
   padding: .4em;
 }
 
-.card p {
+.card1 p {
   height: 100%;
   flex: 1;
   overflow: hidden;
@@ -643,11 +766,11 @@ video {
   align-items: center;
 }
 
-.card p:hover {
+.card1 p:hover {
   flex: 30;
 }
 
-.card p img {
+.card1 p img {
   min-width: 14em;
   padding: .5em;
   text-align: center;
@@ -658,10 +781,54 @@ video {
   letter-spacing: .1em;
 }
 
-.card p:hover img{
+.card1 p:hover img{
   transform: rotate(0);
 }
 
+.card2 {
+  width: 600px;
+  margin-left: 50%;
+  height: 400px;
+  margin-top: 100px !important;
+  border-radius: 20px;
+  background: #19354a;
+  display: flex;
+  position: absolute;
+  gap: 5px;
+  padding: .4em;
+}
+
+.card2 p {
+  height: 100%;
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .5s;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card2 p:hover {
+  flex: 30;
+}
+
+.card2 p img {
+  min-width: 14em;
+  padding: .5em;
+  text-align: center;
+  transform: rotate(-90deg);
+  transition: all .5s;
+  text-transform: uppercase;
+  color: #1D1A39;
+  letter-spacing: .1em;
+}
+
+.card2 p:hover img{
+  transform: rotate(0);
+}
 /* The loader container */
 .loader1 {
   margin-top: 100px;

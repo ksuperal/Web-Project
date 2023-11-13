@@ -22,11 +22,12 @@
         <div class="dot"></div>
       </div>
     </div>
-    <div class="background1" id="bg0" ">
+    <div class="background1" id="bg1" ">
       <div class="item1">
         <div id="login-div">
           <img src="resources/se.png" alt="se" class="se" />
-          <p id="login-text"></p>
+          
+          <p id="login-text">login</p>
         </div>
         <br />
       </div>
@@ -38,7 +39,7 @@
           <a class="navitem" href="#bg1">Program</a>
         </div>
         <div>
-          <a class="navitem" href="#bg2">Admissions</a>
+          <a class="navitem" href="#bg4">Admissions</a>
         </div>
         <div>
           <a class="navitem" href="#bg2">News</a>
@@ -59,30 +60,12 @@
         <div class="typewriteranimation2">Welcome To<br>Software <br>Engineering</div>
       </div>
     </div>
-    <div class="background2" id="bg2">
-        <h1>News & Event</h1>
-        <div class="card">
-          <p><img src="resources/d1.jpg" /></p>
-          <p><img src="resources/d2.jpg" /></p>
-          <p><img src="resources/d3.jpg" /></p>
-          <p><img src="resources/d3.png" /></p>
-          <p><img src="resources/se.png" /></p>
-          <p><img src="resources/se.png" /></p>
-        </div>
-    </div>
+	<div class="background3" id="bg0">
+		<p class="bg3head">About Us</p>
 
-   
-
-    <!-- <div class="card">
-            <p><img src="resources/d1.jpg" /></p>
-            <p><img src="resources/d2.jpg" /></p>
-            <p><img src="resources/d3.jpg" /></p>
-            <p><img src="resources/d3.png" /></p>
-            <p><img src="resources/se.png" /></p>
-            <p><img src="resources/se.png" /></p>
-          </div> -->
-
-    <!-- <button class="accordion">Software Engineering#0</button>
+		<div class="innerbg3">
+			<div class="bg3inner">
+    		<button class="accordion">Software <br>Engineering#0</button>
             <div class="panel">
               <p>
                 Welcome to our Software Engineering Program! In this dynamic and
@@ -97,7 +80,9 @@
                 here.
               </p>
             </div>
+			</div>
 
+			<div class="bg3inner">
             <button class="accordion">What do we learn?</button>
             <div class="panel">
               <p>
@@ -118,7 +103,9 @@
                 in the field.
               </p>
             </div>
+			</div>
 
+			<div class="bg3inner">
             <button class="accordion">Why SE?</button>
             <div class="panel">
               <p>
@@ -140,8 +127,38 @@
                 creativity, intellectual challenge, and the chance to make a
                 tangible impact on the world.
               </p>
-            </div> -->
+            </div>
+			</div>
+		</div>
+	
+          </div>
+    <div class="background2" id="bg2">
+        <h1 class="bg2head">News & Event</h1>
+        <div class="card1">
+          <p><img src="resources/d1.jpg" /></p>
+          <p><img src="resources/d2.jpg" /></p>
+          <p><img src="resources/d3.jpg" /></p>
+        </div>
+		<div class="card2">
+		  <p><img src="resources/d3.png" /></p>
+          <p><img src="resources/se.png" /></p>
+          <p><img src="resources/se.png" /></p>
+		</div>
+    </div>
 
+   <div class="background4" id="bg4">
+		<div class="form-box">
+			<div class="button-box">
+				<button type="button" class="toggle-btn1" id="toggle1" onclick="color1()" >Announcement of Direct Admissions <br> 1-1(Early Round)</button>
+				<button type="button" class="toggle-btn2" id="toggle2" onclick="color2()" >Announcement of Direct Admissions <br> 1-1(Early Round) for International <br> Students</button>
+			</div>
+		</div>
+
+	<img src="resources/admission1.png" id="toggle1img" class="admission1" />
+	<img src="resources/admission2.png" id="toggle2img" class="admission2" />
+
+   </div>
+    
     <div class="footer">
       <div class="fcontainer">
         <div class="k-icon">

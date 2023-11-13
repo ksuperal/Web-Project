@@ -88,14 +88,27 @@ window.addEventListener("load", () => {
 
 
 });
-function toggleVisibility() {
-  var item2 = document.querySelector('.item2');
-  var tag = document.querySelector('.tag');
-  
-  
-  item2.style.visibility = (item2.style.visibility === 'visible') ? 'hidden' : 'visible';
-  
-  tag.style.marginLeft = (tag.style.marginLeft === '75%') ? '90%' : '75%';
+function color1(){
+  var btn1 = document.getElementById('toggle1');
+  var btn2 = document.getElementById('toggle2');
+  var item1 = document.getElementById('toggle1img');
+  var item2 = document.getElementById('toggle2img');
+
+  btn1.style.backgroundColor = 'coral';
+  btn2.style.backgroundColor = 'white';
+  item2.style.visibility =  'hidden';
+  item1.style.visibility = 'visible' ;
+}
+function color2(){
+  var btn1 = document.getElementById('toggle1');
+  var btn2 = document.getElementById('toggle2');
+  var item1 = document.getElementById('toggle1img');
+  var item2 = document.getElementById('toggle2img');
+
+  btn1.style.backgroundColor = 'white';
+  btn2.style.backgroundColor = 'coral';
+  item2.style.visibility =  'visible';
+  item1.style.visibility = 'hidden' ;
 }
 var acc = document.getElementsByClassName("accordion");
 var i;
@@ -113,3 +126,4 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
