@@ -13,11 +13,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let activePostIndex = null;
 
     function renderBlogPosts() {
+        posts = {};
         const blogPostsContainer = document.getElementById('blogPosts');
         blogPostsContainer.innerHTML = '';
         blogPosts.reverse();
 
         blogPosts.forEach((post, index) => {
+            posts[index] = post.title;
             const postElement = document.createElement('div');
             postElement.classList.add('post');
             postElement.innerHTML = `
@@ -41,7 +43,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 post.subthread.forEach(reply => {
                     const replyElement = document.createElement('div');
                     replyElement.classList.add('reply');
-                    replyElement.textContent = reply.reply;
+            
+                    // Create elements for name and reply
+                    const nameElement = document.createElement('p');
+                    nameElement.textContent = `Name: ${reply.name}`;
+                    nameElement.style.fontSize = '12px'; // Set font size for name
+            
+                    const replyContent = document.createElement('p');
+                    replyContent.textContent = `Reply: ${reply.reply}`;
+                    replyContent.style.fontSize = '12px'; // Set font size for reply
+            
+                    // Apply border style to create separation between replies
+                    replyElement.style.border = '1px solid #ccc'; // Adding a border
+            
+                    // Append name and reply to the replyElement
+                    replyElement.appendChild(nameElement);
+                    replyElement.appendChild(replyContent);
+            
+                    // Append the replyElement to the repliesContainer
                     repliesContainer.appendChild(replyElement);
                 });
 
@@ -61,24 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             commentButton.addEventListener('click', () => {
-                commentOnPost(index);
+                commentOnPost(index, posts[index]);
             });
         });
     }
 
-    function commentOnPost(selectedPostIndex) {
-        const commentText = document.getElementById(`commentText${selectedPostIndex}`).value;
-
-        if (commentText) {
-            const newComment = { reply: commentText };
-            blogPosts[selectedPostIndex].subthread.push(newComment);
-            renderBlogPosts();
-
-            document.getElementById(`commentText${selectedPostIndex}`).value = '';
-        }
-
-       
-    }
+    
 
     var id;
 
@@ -121,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
         });
 
+
     function createNewPost(title, content) {
        
         console.log("id: " + id);
@@ -152,6 +160,42 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error:', error);
         });
     }
+
+    function commentOnPost(selectedPostIndex, title) {
+        const commentText = document.getElementById(`commentText${selectedPostIndex}`).value;
+
+        if (commentText) {
+            const newComment = {
+                name: id,
+                title: title, 
+                reply: commentText };
+            blogPosts[selectedPostIndex].subthread.push(newComment);
+            
+
+            document.getElementById(`commentText${selectedPostIndex}`).value = '';
+
+            fetch('http://localhost:8000/newcomment', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newComment),
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data); // Message from the server
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+
+        blogPosts.reverse();
+        renderBlogPosts();
+        
+       
+    }
+
 
     fetch('http://localhost:8000/posts')
         .then(response => response.json())

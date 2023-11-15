@@ -53,6 +53,12 @@ class BlogPost(BaseModel):
     content: str
     subthread: list = []
 
+class Comment(BaseModel):
+    name: str
+    title: str
+    reply: str
+    
+
 class Token(BaseModel):
     userID: str
     time: str
@@ -184,6 +190,19 @@ def create_new_post(post: BlogPost = Body(...)):
 
     with open('blogPosts.json', 'w') as file:
         json.dump(blogPosts, file, indent=4)
+
+    return 'Post created successfully!'
+
+@app.post('/newcomment')
+def create_new_post(comment: Comment = Body(...)):
+    for post in blogPosts:
+        if post['title'] == comment.title:
+            post['subthread'].append(comment.dict())
+            break
+
+    with open('blogPosts.json', 'w') as file:
+        json.dump(blogPosts, file, indent=4)
+        
 
     return 'Post created successfully!'
 
