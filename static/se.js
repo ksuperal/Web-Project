@@ -44,35 +44,24 @@ function fetchUserID() {
         let minutes = now.getMinutes(); // Get the minutes component
 
         let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
-        console.log("userID: " + data[0].userID);
+        // console.log("userID: " + data[0].userID);
         console.log("expire: " + expire);
         console.log("nowInMinutes: " + nowInMinutes);
         if (nowInMinutes > expire) {
-          // loggedIn = false;
-          //delete expired token
-          // fetch('http://localhost:8000/expiredToken', {
-          //   method: 'post',
-          //   headers: {
-          //     'Content-Type': 'application/json',
-          //   },
+
+          fetch('http://localhost:8000/expiredToken', {
+            method: 'post',
+            headers: {
+              'Content-Type': 'application/json',
+            },
             
-          //   body: JSON.stringify({
-          //     "userID": data[0].userID
-          //   })
-          // }
-          // .then(response => response.json())
-          // .then(data => {
-          //   if (data["message"] == "Token removed!") {
-          //     console.log("token deleted");
-          //   }
-          //   else {
-          //     console.log("token not deleted");
-          //   }
-          // })
-          // );
-          // return 0;
+            body: JSON.stringify({
+              "userID": data[0].userID
+            })
+          });
+
           console.log("token expired");
-          document.getElementById('login-text').innerHTML = "Loginssss";
+          document.getElementById('login-text').innerHTML = "Login";
 
           console.log("loggedInAs: " + document.getElementById('login-text').innerHTML);
           var elements = document.querySelectorAll('.dropdown');

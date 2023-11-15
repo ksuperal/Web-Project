@@ -69,9 +69,7 @@ async def mainpage():
 
 @app.get("/login")
 async def get_login():
-    with open("login.html", "r",  encoding='utf-8') as file:
-        html_content = file.read()
-    return HTMLResponse(content=html_content, status_code=200)
+    return RedirectResponse(url='/static/login.html', status_code=307)
 
 @app.post("/login")
 def login(user: User):
@@ -124,12 +122,12 @@ def get_token():
     return tokens
 
 @app.post('/expiredToken')
-def expired_token(userID: str):
+def expired_token(token: dict = Body(...)):
     for t in tokens:
-        if t['userID'] == userID:
+        if t['userID'] == token['userID']:
             tokens.remove(t)
-            return {"message": "Token removed!"}
-    return {"message": "Token not found!"}
+            print('Token removed!')
+    print (tokens)
 
 # @app.post('/token')
 # def require_token(token: dict = Body(...)):

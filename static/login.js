@@ -136,7 +136,7 @@ function register() {
     })
     .then(response => response.json())
     .then(data => {
-        alert(data.message);
+        // alert(data.message);
         // Additional logic based on the response, e.g., redirect to another page on successful login
     })
     .catch(error => {
