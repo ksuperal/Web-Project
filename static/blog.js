@@ -75,10 +75,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
             document.getElementById(`commentText${selectedPostIndex}`).value = '';
         }
+
+       
     }
 
+   
+
     function createNewPost(title, content) {
+        var id;
+
+        fetch('http://localhost:8000/tokenGet')
+        .then(response => response.json())
+        .then(data => {
+          if (data.length == 0) {
+            console.log("no token");
+            // add whatever
+  
+            return;
+          }
+          id = data[0].userID;
+          var expire = data[0].expire;
+          let now = new Date(); // Get the current date and time
+          let hours = now.getHours(); // Get the hours component
+          let minutes = now.getMinutes(); // Get the minutes component
+  
+          let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
+  
+          // console.log("expire: " + expire);
+          // console.log("nowInMinutes: " + nowInMinutes);
+          if (nowInMinutes > expire) {
+  
+            fetch('http://localhost:8000/expiredToken', {
+              method: 'post',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+  
+              body: JSON.stringify({
+                "userID": data[0].userID
+              })
+            });
+  
+            console.log("token expired");
+  
+            return;
+          }
+          
+        });
+        console.log("id: " + id);
+
         const newPost = {
+            test:"test",
+            name: id,
             title: title,
             content: content,
             subthread: []
