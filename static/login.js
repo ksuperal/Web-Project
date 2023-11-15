@@ -40,8 +40,12 @@ window.onload = function() {
                 return;
             }
             var expire = data[0].expire;
-            var now = new Date().getTime();
-            if (now > expire) {
+            let now = new Date(); // Get the current date and time
+            let hours = now.getHours(); // Get the hours component
+            let minutes = now.getMinutes(); // Get the minutes component
+
+            let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
+            if (nowInMinutes > expire) {
                 //delete expired token
                 fetch(web + 'expiredToken', {
                     method: 'post',
@@ -136,6 +140,12 @@ function register() {
     })
     .then(response => response.json())
     .then(data => {
+        document.getElementById('alert').innerHTML = data.message;
+        document.getElementById('alert').style.display = "block";
+
+        const container = document.querySelector('.login-container');
+        container.style.height = '40%';
+        return;
         // alert(data.message);
         // Additional logic based on the response, e.g., redirect to another page on successful login
     })
