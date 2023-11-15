@@ -39,22 +39,40 @@ function fetchUserID() {
           return;
         }
         var expire = data[0].expire;
-        var now = new Date().getTime();
-        if (now > expire) {
+        let now = new Date(); // Get the current date and time
+        let hours = now.getHours(); // Get the hours component
+        let minutes = now.getMinutes(); // Get the minutes component
+
+        let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
+        console.log("userID: " + data[0].userID);
+        console.log("expire: " + expire);
+        console.log("nowInMinutes: " + nowInMinutes);
+        if (nowInMinutes > expire) {
           // loggedIn = false;
           //delete expired token
-          fetch('http://localhost:8000/expiredToken', {
-            method: 'post',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              "userID": userID
-            })
-          });
+          // fetch('http://localhost:8000/expiredToken', {
+          //   method: 'post',
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+            
+          //   body: JSON.stringify({
+          //     "userID": data[0].userID
+          //   })
+          // }
+          // .then(response => response.json())
+          // .then(data => {
+          //   if (data["message"] == "Token removed!") {
+          //     console.log("token deleted");
+          //   }
+          //   else {
+          //     console.log("token not deleted");
+          //   }
+          // })
+          // );
           // return 0;
           console.log("token expired");
-          document.getElementById('login-text').innerHTML = "Login";
+          document.getElementById('login-text').innerHTML = "Loginssss";
 
           console.log("loggedInAs: " + document.getElementById('login-text').innerHTML);
           var elements = document.querySelectorAll('.dropdown');
@@ -88,6 +106,7 @@ window.addEventListener("load", () => {
 
 
 });
+
 function color1(){
   var btn1 = document.getElementById('toggle1');
   var btn2 = document.getElementById('toggle2');

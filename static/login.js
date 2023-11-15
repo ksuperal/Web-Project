@@ -84,7 +84,7 @@ function login() {
     })
     .then(response => response.json())
     .then(data => {
-        alert(data.message);
+        // alert(data.message);
         if (data.message != "Login successful!") {
             document.getElementById('alert').innerHTML = "Wrong username or password!";
             document.getElementById('alert').style.display = "block";
@@ -95,7 +95,15 @@ function login() {
         }
         else{
             saveCredential();
-            window.location.href = `se.html`;
+            // document.getElementById('alert').innerHTML = "going to se.html";
+            // window.location.href = `se.html`;
+            //get mainpage
+            fetch(web + 'mainpage', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
         }
     })
     .catch(error => {

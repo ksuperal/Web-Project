@@ -2,6 +2,9 @@ from fastapi import FastAPI, HTTPException, Body
 from pydantic import BaseModel
 import json
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse, HTMLResponse
+# import os
 
 app = FastAPI()
 app.add_middleware(
@@ -11,6 +14,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# static_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), "static")
+
+# Mount the static files directory to the "/static" path
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Mount another directory for resources to the "/resources" path
+app.mount("/resources", StaticFiles(directory="resources"), name="resources")
+
 # Load existing blog posts
 with open('blogPosts.json', 'r') as file:
     blogPosts = json.load(file)
@@ -47,27 +59,19 @@ class Token(BaseModel):
 
 # Initialize an empty list to store videos
 
+@app.get("/")
+async def root():
+    return RedirectResponse(url='/static/se.html', status_code=307)
 
-# Endpoint to add a new video
-@app.post("/add_video")
-async def add_video(video: VideoRequest = Body(...)): 
-    videos.append(video.dict())
+@app.get("/mainpage")
+async def mainpage():
+    return RedirectResponse(url='/static/se.html', status_code=307)
 
-    with open('videos.json', 'w') as file:
-        json.dump(videos, file, indent=4)
-
-    return 'videocreated successfully!'
-    
-
-# Endpoint to get all videos
-@app.get("/videos")
-async def get_videos():
-    return videos
-
-
-@app.get('/posts')
-def get_blog_posts():
-    return blogPosts
+@app.get("/login")
+async def get_login():
+    with open("login.html", "r",  encoding='utf-8') as file:
+        html_content = file.read()
+    return HTMLResponse(content=html_content, status_code=200)
 
 @app.post("/login")
 def login(user: User):
@@ -76,28 +80,30 @@ def login(user: User):
             import datetime
             now = datetime.datetime.now()
             now = now.strftime('%Y-%m-%d %H:%M:%S')
-
+            now = int(now[11:13]) * 60 + int(now[14:16])
+            expire = now + 30
     
-            for t in tokens:
-                if t['userID'] == existing_user['userID']:
-                    t['time'] = now
-                    t['expire'] = now + datetime.timedelta(minutes=30) #expire after 30 minutes
-                    print('Renewed token!')
-                    return
-
             # if tokens not empty
-            if tokens:
-                print('Already logged in!')
-                return
+            for t in tokens:
+                t['time'] = now
+                t['expire'] = expire
+                print('Renewed token!')
+                return {"message": "Login successful!"}
+                # return RedirectResponse(url='/static/se.html', status_code=307)
 
-            tokens.append({"userID": existing_user['userID'], "time": now, "expire": now + datetime.timedelta(minutes=30)})
+            tokens.append({"userID": existing_user['userID'], "time": now, "expire": expire})
             with open('tokens.json', 'w') as file:
                 json.dump(tokens, file, indent=4)
             print('New token created!')
 
             return {"message": "Login successful!"}
+            # return RedirectResponse(url='/static/se.html', status_code=307)
     
     return {"message": "Invalid credentials"}
+
+# @app.options("se.html")
+# def options_se_html():
+#     return {"message": "Allow"}
 
 @app.post("/register")
 def register(user: User):
@@ -106,7 +112,7 @@ def register(user: User):
             return {"message": "Username already exists"}
 
     # Add the new user to the in-memory database and update the JSON file
-    accounts.append({"username": user.username, "password": user.password, "userID": str(accounts.length() + 1).zfill(6)})
+    accounts.append({"username": user.username, "password": user.password, "userID": str(len(accounts) + 1).zfill(6)})
     with open('login.json', 'w') as file:
         json.dump(accounts, file, indent=4)
 
@@ -116,6 +122,14 @@ def register(user: User):
 def get_token():
     print(tokens)
     return tokens
+
+@app.post('/expiredToken')
+def expired_token(userID: str):
+    for t in tokens:
+        if t['userID'] == userID:
+            tokens.remove(t)
+            return {"message": "Token removed!"}
+    return {"message": "Token not found!"}
 
 # @app.post('/token')
 # def require_token(token: dict = Body(...)):
@@ -144,13 +158,26 @@ def get_token():
 #     print('New token created!')
 #     return 
 
-@app.post('/expiredToken')
-def expired_token(token: dict = Body(...)):
-    for t in tokens:
-        if t['userID'] == token['userID']:
-            tokens.remove(t)
-            print('Token removed!')
-            break
+# Endpoint to add a new video
+@app.post("/add_video")
+async def add_video(video: VideoRequest = Body(...)): 
+    videos.append(video.dict())
+
+    with open('videos.json', 'w') as file:
+        json.dump(videos, file, indent=4)
+
+    return 'videocreated successfully!'
+    
+
+# Endpoint to get all videos
+@app.get("/videos")
+async def get_videos():
+    return videos
+
+
+@app.get('/posts')
+def get_blog_posts():
+    return blogPosts
 
 @app.post('/newpost')
 def create_new_post(post: BlogPost = Body(...)):
