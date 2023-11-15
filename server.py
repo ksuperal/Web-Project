@@ -48,6 +48,7 @@ class VideoRequest(BaseModel):
     title: str
 
 class BlogPost(BaseModel):
+    name: str
     title: str
     content: str
     subthread: list = []

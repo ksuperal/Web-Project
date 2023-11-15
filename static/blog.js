@@ -21,7 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const postElement = document.createElement('div');
             postElement.classList.add('post');
             postElement.innerHTML = `
-                <h2>${post.title}</h2>
+                <h2>${post.title} </h2>
+                <p>by ${post.name}</p>
                 <p>${post.content}</p>
                 <button class="toggleReplies" data-index="${index}">Show Replies</button>
                 <div class="replies" style="display:none;"></div>
@@ -79,10 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
        
     }
 
-   
-
-    function createNewPost(title, content) {
-        var id;
+    var id;
 
         fetch('http://localhost:8000/tokenGet')
         .then(response => response.json())
@@ -122,10 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
         });
+
+    function createNewPost(title, content) {
+       
         console.log("id: " + id);
 
         const newPost = {
-            test:"test",
+            
             name: id,
             title: title,
             content: content,
