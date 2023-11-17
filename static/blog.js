@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     let blogPosts = []
     let activePostIndex = null;
 
+    function displayAlert() {
+        var userChoice = confirm("Do you want to delete the post?");
+
+        return userChoice;
+    }
+
     function renderBlogPosts() {
         posts = {};
         const blogPostsContainer = document.getElementById('blogPosts');
@@ -84,7 +90,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             
             deleteButton.addEventListener('click', () => {
-                deletePost(index);
+                if(displayAlert()){
+                    deletePost(index);
+                }
             });
             
             commentButton.addEventListener('click', () => {
@@ -138,6 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function deletePost(selectedPostIndex) {
         if (id != blogPosts[selectedPostIndex].name) {
+            alert("You can only delete your own posts!");
             return;
         }
         const postToDelete = blogPosts[selectedPostIndex];
