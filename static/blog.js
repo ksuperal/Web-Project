@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         blogPosts.push(newPost);
-        renderBlogPosts();
+        
 
         // Send a POST request to the server to update the JSON file
         fetch('http://localhost:8000/newpost', {
@@ -192,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch((error) => {
             console.error('Error:', error);
         });
+        renderBlogPosts();
     }
 
     function commentOnPost(selectedPostIndex, title) {
