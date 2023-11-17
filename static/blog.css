@@ -12,6 +12,17 @@ body {
   p{
     color: white !important;
   }
+  .deletePost{
+    border-radius: 18px;
+    height: 40px;
+    width: 100px;
+    color: white;
+    background-color: #1e3f57;
+  }
+  .deletePost:hover{
+    background-color: #62859e;
+
+  }
   .title{
     width:50%;
     margin-left: 25%;
