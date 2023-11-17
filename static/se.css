@@ -90,7 +90,7 @@ a:hover{
   justify-content: center;
   align-items: center;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 
 }
 .bg3inner{
@@ -459,15 +459,19 @@ video {
   margin-top:30px;
   
 }
+code{
+  font-weight: bold;
+  color:rgb(176, 55, 176);
+}
 .accordion {
   border-radius: 10px;
   border: #140e50 2px solid !important;
   background-color: #e4d4d3;
   color: #1D1A39;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  padding: 18px;
+  padding: 10px;
   width: 500px !important;
   height: 80px;
   width: 100% !important;
@@ -479,18 +483,48 @@ video {
 
 .active, .accordion:hover {
   color: #e4d4d3;
-  height: auto;
+  height: 60px;
   background-color: #1e3f57 !important;
     box-shadow: 10px 10px 0px #1D1A39 !important;
     top: +5px !important;
     left: +5px !important;
 }
 
-.panel {
-  margin-top: 10px;
+.panel1 {
+  margin-right: 650px;
   border-radius: 10px;
+  position: absolute;
   padding: 0 18px;
-  max-width: 670px;
+  max-width: 450px;
+  background-color: #e5d8db;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: none;
+  overflow: hidden;
+  font-size: 15px;
+  text-align: justify;
+  transition: max-height 0.2s ease-out; 
+}
+.panel2 {
+  margin-right: 200px;
+  margin-top: 475px;
+  border-radius: 10px;
+  position: absolute;
+  padding: 0 18px;
+  max-width: 650px;
+  background-color: #e5d8db;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: none;
+  overflow: hidden;
+  font-size: 15px;
+  text-align: justify;
+  transition: max-height 0.2s ease-out; 
+}.panel3 {
+  margin-top: 200px;
+  margin-left: 700px;
+  border-radius: 10px;
+  position: absolute;
+  padding: 0 18px;
+  max-width: 400px;
   background-color: #e5d8db;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: none;
