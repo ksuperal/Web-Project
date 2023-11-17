@@ -5,6 +5,8 @@ body {
   }
   html{
     background-color: white;
+    padding-left: 100px;
+    padding-right: 100px;
   }
   h2{
     color: #1e3f57 !important;
@@ -103,10 +105,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding-top: 2em;
+    padding-top: 1em;
     padding-left: 2.8em;
     padding-right: 2.8em;
     padding-bottom: 2.1em;
+    margin-top: 4em;
+    margin-left: 2.5em;
+    margin-right: 2.5em;
     border: 2px dashed #1e3f57;
     border-radius: 15px;
     background-color: #849aaa;
@@ -165,6 +170,16 @@ body {
     font-size: 20px !important;
     margin-top: 10px;
     color: #1e3f57;
+  }
+  .reply{
+    border-style: none!important;
+    margin-top: 20px;
+    font-weight: bold;
+    padding-left: 100px;
+    
+  }
+  .reply:hover{
+    background-color: #bf81a3 !important;
   }
   #newPostSection{
     justify-content: center !important;

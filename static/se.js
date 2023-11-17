@@ -26,6 +26,7 @@ window.onload = function() {
     }
     else {
       if(displayAlert()){
+        console.log("logout");
         fetch('http://localhost:8000/logout', {
           method: 'post',
           headers: {
