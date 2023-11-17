@@ -75,7 +75,7 @@ function fetchUserID() {
         // console.log("userID: " + data[0].userID);
         console.log("expire: " + expire);
         console.log("nowInMinutes: " + nowInMinutes);
-        if (nowInMinutes => expire) {
+        if (nowInMinutes > expire) {
 
           fetch('http://localhost:8000/expiredToken', {
             method: 'post',

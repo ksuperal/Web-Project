@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const postToDelete = blogPosts[selectedPostIndex];
         blogPosts.splice(selectedPostIndex, 1);
+        blogPosts.reverse();
         renderBlogPosts();
 
         fetch('http://localhost:8000/deletepost', {
