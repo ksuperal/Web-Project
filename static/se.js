@@ -30,11 +30,7 @@ window.onload = function() {
           method: 'post',
           headers: {
             'Content-Type': 'application/json',
-          },
-          
-          body: JSON.stringify({
-            "userID": document.getElementById('login-text').innerHTML
-          })
+          }
         });
         document.getElementById('login-text').innerHTML = "Login";
         var elements = document.querySelectorAll('.dropdown');

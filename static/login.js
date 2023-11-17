@@ -30,37 +30,6 @@ window.onload = function() {
     localStorage.getItem("password") ? document.getElementById('password').value = localStorage.getItem("password") : null;
 
     document.getElementById('alert').style.display = "none";
-
-    //check if token exists
-    fetch(web + 'tokenGet')
-        .then(response => response.json())
-        .then(data => {
-            if (data.length == 0) {
-                console.log("no token");
-                return;
-            }
-            var expire = data[0].expire;
-            let now = new Date(); // Get the current date and time
-            let hours = now.getHours(); // Get the hours component
-            let minutes = now.getMinutes(); // Get the minutes component
-
-            let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
-            if (nowInMinutes > expire) {
-                //delete expired token
-                fetch(web + 'expiredToken', {
-                    method: 'post',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        "userID": data[0].userID
-                    })
-                });
-                console.log("token expired");
-                return;
-            }
-            window.location.href = `se.html`;
-        });
 }
 
 function login() {
@@ -99,15 +68,7 @@ function login() {
         }
         else{
             saveCredential();
-            // document.getElementById('alert').innerHTML = "going to se.html";
-            // window.location.href = `se.html`;
-            //get mainpage
-            fetch(web + 'mainpage', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            window.location.href = `se.html`;
         }
     })
     .catch(error => {

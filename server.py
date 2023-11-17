@@ -4,7 +4,7 @@ import json
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse, HTMLResponse
-# import os
+import os
 
 app = FastAPI()
 app.add_middleware(
@@ -68,22 +68,23 @@ class Token(BaseModel):
 
 @app.get("/")
 async def root():
-    return RedirectResponse(url='/static/se.html', status_code=307)
-
-@app.get("/mainpage")
-async def mainpage():
-    return RedirectResponse(url='/static/se.html', status_code=307)
+    return RedirectResponse(url='/static/se.html')
 
 @app.get("/login")
 async def get_login():
-    return RedirectResponse(url='/static/login.html', status_code=307)
+    return RedirectResponse(url='/static/login.html')
 
 @app.post("/logout")
-async def logout(token: Token = Body(...)):
-    for t in tokens:
-        if t['userID'] == token['userID']:
-            tokens.remove(t)
-            print('Token removed!')
+async def logout():
+    file_path = 'tokens.json'
+
+    empty_array = []
+
+    with open(file_path, 'w') as file:
+        json.dump(empty_array, file)
+
+    with open('tokens.json', 'r') as file:
+        tokens = json.load(file)
     print (tokens)
     return {"message": "Logout successful!"}
 
