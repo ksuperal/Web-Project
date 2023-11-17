@@ -14,8 +14,36 @@ window.onload = function() {
 
   fetchUserID();
 
+  function displayAlert() {
+    var userChoice = confirm("Do you want to logout?");
+
+    return userChoice;
+  }
+
   document.getElementById('login-div').addEventListener('click', () => {
-    window.location.href = `login.html`;
+    if (document.getElementById('login-text').innerHTML == "Login") {
+      window.location.href = `login.html`;
+    }
+    else {
+      if(displayAlert()){
+        fetch('http://localhost:8000/logout', {
+          method: 'post',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          
+          body: JSON.stringify({
+            "userID": document.getElementById('login-text').innerHTML
+          })
+        });
+        document.getElementById('login-text').innerHTML = "Login";
+        var elements = document.querySelectorAll('.dropdown');
+        
+        elements.forEach(function(element) {
+          element.classList.toggle('hidden');
+        });
+      }
+    }
   });
 
 }
@@ -47,7 +75,7 @@ function fetchUserID() {
         // console.log("userID: " + data[0].userID);
         console.log("expire: " + expire);
         console.log("nowInMinutes: " + nowInMinutes);
-        if (nowInMinutes > expire) {
+        if (nowInMinutes => expire) {
 
           fetch('http://localhost:8000/expiredToken', {
             method: 'post',
@@ -73,7 +101,7 @@ function fetchUserID() {
           return;
         }
         console.log("token: " + data[0].userID);
-        document.getElementById('login-text').innerHTML = data[0].userID;
+        document.getElementById('login-text').innerHTML = data[0].userID + "\nLogout";
         // return data[0].userID;
         // console.log("loggedInAs: " + userID);
         // console.log("loggedIn: " + loggedIn);

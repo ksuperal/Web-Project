@@ -45,7 +45,7 @@ window.onload = function() {
             let minutes = now.getMinutes(); // Get the minutes component
 
             let nowInMinutes = hours * 60 + minutes; // Convert hours and minutes to total minutes
-            if (nowInMinutes > expire) {
+            if (nowInMinutes => expire) {
                 //delete expired token
                 fetch(web + 'expiredToken', {
                     method: 'post',

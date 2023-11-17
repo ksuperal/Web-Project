@@ -78,6 +78,15 @@ async def mainpage():
 async def get_login():
     return RedirectResponse(url='/static/login.html', status_code=307)
 
+@app.post("/logout")
+async def logout(token: Token = Body(...)):
+    for t in tokens:
+        if t['userID'] == token['userID']:
+            tokens.remove(t)
+            print('Token removed!')
+    print (tokens)
+    return {"message": "Logout successful!"}
+
 @app.post("/login")
 def login(user: User):
     for existing_user in accounts:
