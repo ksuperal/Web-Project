@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="replies" style="display:none;"></div>
                 <input type="text" class="commentText" id="commentText${index}" placeholder="Your Comment" style="display:none;">
                 <button class="commentButton" data-index="${index}" style="display:none;">Comment</button>
+                <button class="deletePost" data-index="${index}">Delete Post</button>
             `;
             blogPostsContainer.appendChild(postElement);
 
@@ -37,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const repliesContainer = postElement.querySelector('.replies');
             const commentTextInput = postElement.querySelector('.commentText');
             const commentButton = postElement.querySelector('.commentButton');
+            const deleteButton = postElement.querySelector('.deletePost');
+            
 
             toggleButton.addEventListener('click', () => {
                 repliesContainer.innerHTML = '';
@@ -79,6 +82,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 activePostIndex = index;
             });
 
+            
+            deleteButton.addEventListener('click', () => {
+                deletePost(index);
+            });
+            
             commentButton.addEventListener('click', () => {
                 commentOnPost(index, posts[index]);
             });
@@ -127,6 +135,30 @@ document.addEventListener('DOMContentLoaded', function() {
           }
           
         });
+
+    function deletePost(selectedPostIndex) {
+        if (id != blogPosts[selectedPostIndex].name) {
+            return;
+        }
+        const postToDelete = blogPosts[selectedPostIndex];
+        blogPosts.splice(selectedPostIndex, 1);
+        renderBlogPosts();
+
+        fetch('http://localhost:8000/deletepost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postToDelete),
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Message from the server
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
 
 
     function createNewPost(title, content) {

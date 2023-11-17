@@ -205,6 +205,19 @@ def create_new_post(comment: Comment = Body(...)):
         
 
     return 'Post created successfully!'
+@app.post('/deletepost')
+def deletepost(post: BlogPost = Body(...)):
+    
+    for p in blogPosts:
+        if p['title'] == post.title:
+            blogPosts.remove(p)
+            break
+
+    with open('blogPosts.json', 'w') as file:
+        json.dump(blogPosts, file, indent=4)
+        
+
+    return 'Post deleted successfully!'
 
 @app.get('/search/')
 def search_posts(query: str):
